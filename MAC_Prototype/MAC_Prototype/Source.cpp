@@ -17,6 +17,7 @@ public:
 };
 
 User authUser(char user[], char pass[]);
+void addUser(char fname[], char lname[], char user[], char pass[], char role[]);
 
 int main()
 {
@@ -73,4 +74,8 @@ User authUser(char user[], char pass[]) {
 	}
 	file.close();
 	return userObj;
+}
+
+void addUser(char fname[], char lname[], char user[], char pass[], char role[]) {
+	//todo
 }
