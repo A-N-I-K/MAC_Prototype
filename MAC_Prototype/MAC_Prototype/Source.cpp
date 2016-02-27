@@ -8,34 +8,69 @@ const int COLUMNS = 5;
 
 class User {
 public:
-	string fname;
-	string lname;
-	string uid;
-	string pwd;
-	string role;
+	char fname[100];
+	char lname[100];
+	char uid[100];
+	char pwd[100];
+	char role[100];
+	bool valid;
 };
+
+User auth(char user[], char pass[]);
 
 int main()
 {
-	//cout << "This is a test!" << endl;
-	ifstream myReadFile;
-	myReadFile.open("user.db");
-	char output[100];
-	if (myReadFile.is_open()) {
-		while (!myReadFile.eof()) {
-			myReadFile >> output;
-			cout << output << endl;
-		}
+	char user[100];
+	char pass[100];
+	User userObj;
+	cout << "Please provide your username :" << endl;
+	cin >> user;
+	cout << "Please provide your password :" << endl;
+	cin >> pass;
+	userObj = auth(user, pass);
+	if (userObj.valid) {
+		cout << "Welcome, " << userObj.fname << " " << userObj.lname << "!" << endl;
 	}
 	else {
-		cout << "File not found!" << endl;
+		cout << "Invalid username or password. This incident will be reported." << endl;
 	}
-	myReadFile.close();
 	system("pause");
 	return 0;
 }
 
-User authUser(string uid, string pwd) {
-	User newuser;
-	return newuser;
+User auth(char user[], char pass[]) {
+	User userObj;
+	userObj.valid = false;
+	bool found;
+	found = false;
+	ifstream file;
+	file.open("user.db");
+	char fname[100];
+	char lname[100];
+	char uid[100];
+	char pwd[100];
+	char role[100];
+	if (file.is_open()) {
+		while (!file.eof()) {
+			file >> fname;
+			file >> lname;
+			file >> uid;
+			file >> pwd;
+			file >> role;
+			if (strcmp(user, uid) == 0 && strcmp(pass, pwd) == 0) {
+				strcpy_s(userObj.fname, fname);
+				strcpy_s(userObj.lname, lname);
+				strcpy_s(userObj.uid, uid);
+				strcpy_s(userObj.pwd, pwd);
+				strcpy_s(userObj.role, role);
+				userObj.valid = true;
+				found = true;
+			}
+		}
+	}
+	else {
+		cout << "Unable to access user database!" << endl;
+	}
+	file.close();
+	return userObj;
 }
