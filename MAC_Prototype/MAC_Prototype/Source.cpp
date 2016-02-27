@@ -16,7 +16,7 @@ public:
 	bool valid;
 };
 
-User auth(char user[], char pass[]);
+User authUser(char user[], char pass[]);
 
 int main()
 {
@@ -27,7 +27,7 @@ int main()
 	cin >> user;
 	cout << "Please provide your password :" << endl;
 	cin >> pass;
-	userObj = auth(user, pass);
+	userObj = authUser(user, pass);
 	if (userObj.valid) {
 		cout << "Welcome, " << userObj.fname << " " << userObj.lname << "!" << endl;
 	}
@@ -38,7 +38,7 @@ int main()
 	return 0;
 }
 
-User auth(char user[], char pass[]) {
+User authUser(char user[], char pass[]) {
 	User userObj;
 	userObj.valid = false;
 	bool found;
