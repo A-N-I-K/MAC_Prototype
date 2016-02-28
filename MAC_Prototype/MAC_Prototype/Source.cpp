@@ -19,8 +19,8 @@ public:
 User authUser(char user[], char pass[]);
 void listUser();
 void addUser(User userObj);
-void deleteUser(char user[]);
-void modifyUser(char user[], char newRole[]);
+bool deleteUser(char user[]);
+bool modifyUser(char user[], char newRole[]);
 
 int main()
 {
@@ -55,8 +55,8 @@ int main()
 				listUser();
 			}
 			else if (strcmp(choice, "2") == 0 || strcmp(choice, "Two") == 0 || strcmp(choice, "two") == 0) {
-				char input[100];
 				User userTmp;
+				char input[100];
 				cout << "First Name:" << endl;
 				cin >> input;
 				strcpy_s(userTmp.fname, input);
@@ -74,6 +74,38 @@ int main()
 				strcpy_s(userTmp.role, input);
 				userTmp.valid = true;
 				addUser(userTmp);
+			}
+			else if (strcmp(choice, "3") == 0 || strcmp(choice, "Three") == 0 || strcmp(choice, "three") == 0) {
+				char input[100];
+				char role[100];
+				cout << "Please provide the UID of the user you would like to modify:" << endl;
+				cin >> input;
+				cout << "Please provide the updated role for " << input << ":" << endl;
+				cin >> role;
+				if (modifyUser(input, role)) {
+					cout << "The role for the user "<< input << " has been changed to " << role << "." << endl;
+				}
+				else {
+					cout << "The user " << input << " does not exist!" << endl;
+				}
+			}
+			else if (strcmp(choice, "4") == 0 || strcmp(choice, "Four") == 0 || strcmp(choice, "four") == 0) {
+				char input[100];
+				cout << "Please provide the UID of the user you would like to delete:" << endl;
+				cin >> input;
+				if (deleteUser(input)) {
+					cout << "The user " << input << " has been deleted." << endl;
+				}
+				else {
+					cout << "The user " << input << " does not exist!" << endl;
+				}
+			}
+			else if (strcmp(choice, "5") == 0 || strcmp(choice, "Five") == 0 || strcmp(choice, "five") == 0) {
+
+			}
+			else if (strcmp(choice, "6") == 0 || strcmp(choice, "Six") == 0 || strcmp(choice, "six") == 0) {
+				cout << "You have been logged out. Have a great day, " << userObj.fname << "!" << endl;
+				session = false;
 			}
 		}
 	}
@@ -152,7 +184,7 @@ void addUser(User uobject) {
 	myWriteFile.close();
 }
 
-void deleteUser(char user[])
+bool deleteUser(char user[])
 {
 	ifstream file;
 	file.open("user.db");
@@ -165,6 +197,9 @@ void deleteUser(char user[])
 	char uid[100];
 	char pwd[100];
 	char role[100];
+
+	bool found;
+	found = false;
 
 	if (file.is_open()) {
 		while (!file.eof()) {
@@ -175,6 +210,7 @@ void deleteUser(char user[])
 			file >> role;
 			if (strcmp(user, uid) == 0) {
 				continue;
+				found = true;
 			}
 			else{
 				tempFile << fname << "\t" << lname << "\t" << uid << "\t" << pwd << "\t" << role << "\n";
@@ -192,9 +228,10 @@ void deleteUser(char user[])
 		cout << "Unable to access user database!" << endl;
 	}
 
+	return found;
 }
 
-void modifyUser(char user[], char newRole[])
+bool modifyUser(char user[], char newRole[])
 {
 	ifstream file;
 	file.open("user.db");
@@ -208,6 +245,9 @@ void modifyUser(char user[], char newRole[])
 	char pwd[100];
 	char role[100];
 
+	bool found;
+	found = false;
+
 	if (file.is_open()) {
 		while (!file.eof()) {
 			file >> fname;
@@ -217,6 +257,7 @@ void modifyUser(char user[], char newRole[])
 			file >> role;
 			if (strcmp(user, uid) == 0) {
 				tempFile << fname << "\t" << lname << "\t" << uid << "\t" << pwd << "\t" << newRole << "\n";
+				found = true;
 			}
 			else{
 				tempFile << fname << "\t" << lname << "\t" << uid << "\t" << pwd << "\t" << role << "\n";
@@ -234,4 +275,5 @@ void modifyUser(char user[], char newRole[])
 		cout << "Unable to access user database!" << endl;
 	}
 
+	return found;
 }
