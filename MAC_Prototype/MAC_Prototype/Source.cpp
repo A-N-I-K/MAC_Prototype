@@ -19,6 +19,8 @@ public:
 User authUser(char user[], char pass[]);
 void listUser();
 void addUser(User userObj);
+void deleteUser(char user[]);
+void modifyUser(char user[], char newRole[]);
 
 int main()
 {
@@ -148,4 +150,88 @@ void addUser(User uobject) {
 	myWriteFile.open("user.db", std::ios_base::app);
 	myWriteFile << "\n" << uobject.fname << "\t" << uobject.lname << "\t" << uobject.uid << "\t" << uobject.pwd << "\t" << uobject.role;
 	myWriteFile.close();
+}
+
+void deleteUser(char user[])
+{
+	ifstream file;
+	file.open("user.db");
+
+	ofstream tempFile;
+	tempFile.open("temp.db", std::ios_base::app);
+
+	char fname[100];
+	char lname[100];
+	char uid[100];
+	char pwd[100];
+	char role[100];
+
+	if (file.is_open()) {
+		while (!file.eof()) {
+			file >> fname;
+			file >> lname;
+			file >> uid;
+			file >> pwd;
+			file >> role;
+			if (strcmp(user, uid) == 0) {
+				continue;
+			}
+			else{
+				tempFile << fname << "\t" << lname << "\t" << uid << "\t" << pwd << "\t" << role << "\n";
+			}
+		}
+
+		file.close();
+		tempFile.close();
+
+		remove("user.db");
+		rename("temp.db", "user.db");
+
+	}
+	else {
+		cout << "Unable to access user database!" << endl;
+	}
+
+}
+
+void modifyUser(char user[], char newRole[])
+{
+	ifstream file;
+	file.open("user.db");
+
+	ofstream tempFile;
+	tempFile.open("temp.db", std::ios_base::app);
+
+	char fname[100];
+	char lname[100];
+	char uid[100];
+	char pwd[100];
+	char role[100];
+
+	if (file.is_open()) {
+		while (!file.eof()) {
+			file >> fname;
+			file >> lname;
+			file >> uid;
+			file >> pwd;
+			file >> role;
+			if (strcmp(user, uid) == 0) {
+				tempFile << fname << "\t" << lname << "\t" << uid << "\t" << pwd << "\t" << newRole << "\n";
+			}
+			else{
+				tempFile << fname << "\t" << lname << "\t" << uid << "\t" << pwd << "\t" << role << "\n";
+			}
+		}
+
+		file.close();
+		tempFile.close();
+
+		remove("user.db");
+		rename("temp.db", "user.db");
+
+	}
+	else {
+		cout << "Unable to access user database!" << endl;
+	}
+
 }
