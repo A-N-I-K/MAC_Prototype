@@ -76,6 +76,12 @@ User authUser(char user[], char pass[]) {
 	return userObj;
 }
 
-void addUser(User userObj) {
-	//todo
+void addUser(User uobject) {
+
+	ofstream myWriteFile;
+	myWriteFile.open("user.db", std::ios_base::app);
+
+	myWriteFile << "\n" << uobject.fname << "\t" << uobject.lname << "\t" << uobject.uid << "\t" << uobject.pwd << "\t" << uobject.role;
+
+	myWriteFile.close();
 }
