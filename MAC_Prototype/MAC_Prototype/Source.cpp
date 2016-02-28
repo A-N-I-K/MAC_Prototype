@@ -22,12 +22,14 @@ void addUser(User userObj);
 
 int main()
 {
+	/*char fname[100];
+	char lname[100];
+	char uid[100];
+	char pwd[100];
+	char role[100];*/
 	char user[100];
 	char pass[100];
-	char choice[100];
 	User userObj;
-	bool session;
-	session = true;
 	cout << "Please provide your username :" << endl;
 	cin >> user;
 	cout << "Please provide your password :" << endl;
@@ -35,7 +37,10 @@ int main()
 	userObj = authUser(user, pass);
 	if (userObj.valid) {
 		cout << "Welcome, " << userObj.fname << " " << userObj.lname << "!" << endl;
+		bool session;
+		session = true;
 		while (session) {
+			char choice[100];
 			cout << "What would you like to do today?" << endl;
 			cout << "1. List users" << endl;
 			cout << "2. Add user" << endl;
@@ -46,6 +51,27 @@ int main()
 			cin >> choice;
 			if (strcmp(choice, "1") == 0 || strcmp(choice, "One") == 0 || strcmp(choice, "one") == 0) {
 				listUser();
+			}
+			else if (strcmp(choice, "2") == 0 || strcmp(choice, "Two") == 0 || strcmp(choice, "two") == 0) {
+				char input[100];
+				User userTmp;
+				cout << "First Name:" << endl;
+				cin >> input;
+				strcpy_s(userTmp.fname, input);
+				cout << "last Name:" << endl;
+				cin >> input;
+				strcpy_s(userTmp.lname, input);
+				cout << "UID:" << endl;
+				cin >> input;
+				strcpy_s(userTmp.uid, input);
+				cout << "Password" << endl;
+				cin >> input;
+				strcpy_s(userTmp.pwd, input);
+				cout << "Role:" << endl;
+				cin >> input;
+				strcpy_s(userTmp.role, input);
+				userTmp.valid = true;
+				addUser(userTmp);
 			}
 		}
 	}
@@ -118,11 +144,8 @@ void listUser() {
 }
 
 void addUser(User uobject) {
-
 	ofstream myWriteFile;
 	myWriteFile.open("user.db", std::ios_base::app);
-
 	myWriteFile << "\n" << uobject.fname << "\t" << uobject.lname << "\t" << uobject.uid << "\t" << uobject.pwd << "\t" << uobject.role;
-
 	myWriteFile.close();
 }
