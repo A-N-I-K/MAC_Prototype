@@ -17,10 +17,16 @@ public:
 };
 
 User authUser(char user[], char pass[]);
+void listUser();
 void addUser(User userObj);
 
 int main()
 {
+	/*char fname[100];
+	char lname[100];
+	char uid[100];
+	char pwd[100];
+	char role[100];*/
 	char user[100];
 	char pass[100];
 	User userObj;
@@ -31,6 +37,43 @@ int main()
 	userObj = authUser(user, pass);
 	if (userObj.valid) {
 		cout << "Welcome, " << userObj.fname << " " << userObj.lname << "!" << endl;
+		bool session;
+		session = true;
+		while (session) {
+			char choice[100];
+			cout << "What would you like to do today?" << endl;
+			cout << "1. List users" << endl;
+			cout << "2. Add user" << endl;
+			cout << "3. Modify user" << endl;
+			cout << "4. Delete user" << endl;
+			cout << "5. View log" << endl;
+			cout << "6. Log out" << endl;
+			cin >> choice;
+			if (strcmp(choice, "1") == 0 || strcmp(choice, "One") == 0 || strcmp(choice, "one") == 0) {
+				listUser();
+			}
+			else if (strcmp(choice, "2") == 0 || strcmp(choice, "Two") == 0 || strcmp(choice, "two") == 0) {
+				char input[100];
+				User userTmp;
+				cout << "First Name:" << endl;
+				cin >> input;
+				strcpy_s(userTmp.fname, input);
+				cout << "last Name:" << endl;
+				cin >> input;
+				strcpy_s(userTmp.lname, input);
+				cout << "UID:" << endl;
+				cin >> input;
+				strcpy_s(userTmp.uid, input);
+				cout << "Password" << endl;
+				cin >> input;
+				strcpy_s(userTmp.pwd, input);
+				cout << "Role:" << endl;
+				cin >> input;
+				strcpy_s(userTmp.role, input);
+				userTmp.valid = true;
+				addUser(userTmp);
+			}
+		}
 	}
 	else {
 		cout << "Invalid username or password. This incident will be reported." << endl;
@@ -44,13 +87,13 @@ User authUser(char user[], char pass[]) {
 	userObj.valid = false;
 	bool found;
 	found = false;
-	ifstream file;
-	file.open("user.db");
 	char fname[100];
 	char lname[100];
 	char uid[100];
 	char pwd[100];
 	char role[100];
+	ifstream file;
+	file.open("user.db");
 	if (file.is_open()) {
 		while (!file.eof()) {
 			file >> fname;
@@ -76,12 +119,33 @@ User authUser(char user[], char pass[]) {
 	return userObj;
 }
 
-void addUser(User uobject) {
+void listUser() {
+	char output[100];
+	ifstream file;
+	file.open("user.db");
+	if (file.is_open()) {
+		while (!file.eof()) {
+			file >> output;
+			cout << output << "\t";
+			file >> output;
+			cout << output << "\t";
+			file >> output;
+			cout << output << "\t";
+			file >> output;
+			cout << output << "\t";
+			file >> output;
+			cout << output << "\t" << endl;
+		}
+	}
+	else {
+		cout << "Unable to access user database!" << endl;
+	}
+	file.close();
+}
 
+void addUser(User uobject) {
 	ofstream myWriteFile;
 	myWriteFile.open("user.db", std::ios_base::app);
-
 	myWriteFile << "\n" << uobject.fname << "\t" << uobject.lname << "\t" << uobject.uid << "\t" << uobject.pwd << "\t" << uobject.role;
-
 	myWriteFile.close();
 }
