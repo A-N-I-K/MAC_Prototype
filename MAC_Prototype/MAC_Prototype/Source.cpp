@@ -21,6 +21,7 @@ void listUser();
 void addUser(User userObj);
 bool deleteUser(char user[]);
 bool modifyUser(char user[], char newRole[]);
+void queryCheck(char *query);
 
 int main()
 {
@@ -276,4 +277,36 @@ bool modifyUser(char user[], char newRole[])
 	}
 
 	return found;
+}
+
+void queryCheck(char *query)
+{
+	string q1 = query;
+
+	q1.erase(std::remove(q1.begin(), q1.end(), ' '), q1.end());		//erasing white spaces
+
+	unsigned FROM = q1.find("FROM");
+	unsigned WHERE = q1.find("WHERE");
+
+	string from_to_where = q1.substr(FROM + 4, WHERE - FROM - 4);	//extracted list of table
+
+	char * cstr = new char[from_to_where.length() + 1];		
+	const char * m = from_to_where.c_str();		//converting the string to char array
+
+	strcpy_s(cstr, strlen(m) + 1, m);
+
+	char * context = NULL;
+	char * p = strtok_s(cstr, ",", &context);		
+	string table_name;
+	while (p != 0)
+	{
+		table_name = p;	//extracted table name
+
+		//pass the table name to a function which check whether it is accessible by the user
+
+		p = strtok_s(NULL, ",", &context);
+
+	}
+
+	delete[] cstr;
 }
