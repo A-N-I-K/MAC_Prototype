@@ -23,14 +23,14 @@ void addUser(User userObj);
 bool deleteUser(char user[]);
 bool modifyUser(char user[], char newRole[]);
 void queryCheck(char *query);
-void testCon();
+void conTest();
 
 MYSQL *conn;
 int version = 1;
 
 int main()
 {
-	testCon();
+	conTest();
 	/*char fname[100];
 	char lname[100];
 	char uid[100];
@@ -317,7 +317,7 @@ void queryCheck(char *query)
 	delete[] cstr;*/
 }
 
-void testCon() {
+void conTest() {
 	conn = mysql_init(NULL);
 	if (!mysql_real_connect(conn, "localhost", "root", "root", "mac", 0, NULL, 0)) {
 		fprintf(stderr, "%s\n", mysql_error(conn));
