@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <mysql.h>
 
 using namespace std;
 
@@ -22,9 +23,14 @@ void addUser(User userObj);
 bool deleteUser(char user[]);
 bool modifyUser(char user[], char newRole[]);
 void queryCheck(char *query);
+void testCon();
+
+MYSQL *conn;
+int version = 1;
 
 int main()
 {
+	testCon();
 	/*char fname[100];
 	char lname[100];
 	char uid[100];
@@ -281,7 +287,7 @@ bool modifyUser(char user[], char newRole[])
 
 void queryCheck(char *query)
 {
-	string q1 = query;
+	/*string q1 = query;
 
 	q1.erase(std::remove(q1.begin(), q1.end(), ' '), q1.end());		//erasing white spaces
 
@@ -308,5 +314,17 @@ void queryCheck(char *query)
 
 	}
 
-	delete[] cstr;
+	delete[] cstr;*/
+}
+
+void testCon() {
+	conn = mysql_init(NULL);
+	if (!mysql_real_connect(conn, "localhost", "root", "root", "mac", 0, NULL, 0)) {
+		fprintf(stderr, "%s\n", mysql_error(conn));
+	}
+	else {
+		version = mysql_get_server_version(conn);
+		printf("\nMySQL Version = %d\n", version);
+	}
+	mysql_close(conn);
 }
