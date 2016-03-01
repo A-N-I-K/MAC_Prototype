@@ -53,7 +53,6 @@ namespace AR_MAC_DB
         {
             try
             {
-
                 StreamWriter file = new StreamWriter("user.db", true);
                 string line = uobject.fname + "\t" + uobject.lname + "\t" + uobject.uid + "\t" + uobject.pwd + "\t" + uobject.perm;
                 file.WriteLine(line);
@@ -64,8 +63,32 @@ namespace AR_MAC_DB
             {
                 Console.WriteLine("File Not Found!!");
             }
-
         }
 
+        private void addUserButton_Click(object sender, EventArgs e)
+        {
+            fnameTextBox.Visible = true;
+            lnameTextBox.Visible = true;
+            uidTextBox.Visible = true;
+            pwdTextBox.Visible = true;
+            permComboBox.Visible = true;
+            submitButton.Visible = true;
+            permComboBox.Text = "SO";
+            permComboBox.Items.Add("SO");
+            permComboBox.Items.Add("P");
+            permComboBox.Items.Add("G");
+        }
+
+        private void submitButton_Click(object sender, EventArgs e)
+        {
+            User user = new User();
+            user.fname = fnameTextBox.Text;
+            user.lname = lnameTextBox.Text;
+            user.uid = uidTextBox.Text;
+            user.pwd = pwdTextBox.Text;
+            user.perm = permComboBox.Text;
+            user.valid = true;
+            addUser(user);
+        }
     }
 }

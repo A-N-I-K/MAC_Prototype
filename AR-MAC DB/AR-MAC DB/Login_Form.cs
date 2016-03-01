@@ -20,8 +20,8 @@ namespace AR_MAC_DB
 
         public User authUser(string uname, string pass)
         {
-            User userObj = new User();
-            userObj.valid = false;
+            User user = new User();
+            user.valid = false;
             try
             {
                 // Read the database                
@@ -35,12 +35,12 @@ namespace AR_MAC_DB
                     {
                         if (parts[i + 2] == uname && parts[i + 3] == pass)  //validating user name and password
                         {
-                            userObj.fname = parts[i];
-                            userObj.lname = parts[i + 1];
-                            userObj.uid = parts[i + 2];
-                            userObj.pwd = parts[i + 3];
-                            userObj.perm = parts[i + 4];
-                            userObj.valid = true;
+                            user.fname = parts[i];
+                            user.lname = parts[i + 1];
+                            user.uid = parts[i + 2];
+                            user.pwd = parts[i + 3];
+                            user.perm = parts[i + 4];
+                            user.valid = true;
                         }
 
                     }              
@@ -52,7 +52,7 @@ namespace AR_MAC_DB
             {
                 Console.WriteLine("File not found!!!");
             }
-            return userObj;
+            return user;
         }
 
         private void login_Click(object sender, EventArgs e)
@@ -70,13 +70,5 @@ namespace AR_MAC_DB
         }
     }
 
-    public class User
-    {
-        public string fname;
-        public string lname;
-        public string uid;
-        public string pwd;
-        public string perm;
-        public bool valid;
-    }
+    
 }

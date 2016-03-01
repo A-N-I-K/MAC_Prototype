@@ -19,4 +19,14 @@ namespace AR_MAC_DB
             Application.Run(new loginForm());
         }
     }
+
+    public class User
+    {
+        public string fname;
+        public string lname;
+        public string uid;
+        public string pwd;
+        public string perm;
+        public bool valid;
+    }
 }
