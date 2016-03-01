@@ -28,19 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.welcomeLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // welcomeLabel
+            // 
+            this.welcomeLabel.AutoSize = true;
+            this.welcomeLabel.Location = new System.Drawing.Point(230, 80);
+            this.welcomeLabel.Name = "welcomeLabel";
+            this.welcomeLabel.Size = new System.Drawing.Size(55, 13);
+            this.welcomeLabel.TabIndex = 0;
+            this.welcomeLabel.Text = "Welcome!";
             // 
             // soForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(763, 522);
+            this.Controls.Add(this.welcomeLabel);
             this.Name = "soForm";
             this.Text = "SO_Form";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label welcomeLabel;
     }
 }
