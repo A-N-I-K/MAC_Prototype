@@ -29,24 +29,13 @@ namespace AR_MAC_DB
                 {
                     listUsersListBox.Items.Add(line);
                 }
+                file.Close();
             }
             catch (FileNotFoundException e)
             {
                 Console.WriteLine("File not found!!!");
             }
 
-        }
-
-        private void logoutButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            loginForm form = new loginForm();
-            form.Show();
-        }
-
-        private void listUsersButton_Click(object sender, EventArgs e)
-        {
-            listUsers();
         }
 
         public void addUser(User uobject)
@@ -63,6 +52,19 @@ namespace AR_MAC_DB
             {
                 Console.WriteLine("File Not Found!!");
             }
+        }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            loginForm form = new loginForm();
+            form.Show();
+        }
+
+        private void listUsersButton_Click(object sender, EventArgs e)
+        {
+            listUsersListBox.Items.Clear();
+            listUsers();
         }
 
         private void addUserButton_Click(object sender, EventArgs e)
