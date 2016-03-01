@@ -149,6 +149,49 @@ namespace AR_MAC_DB
             return found;
         }
 
+        public bool modifyTable(string table, string newPerm)
+        {
+            bool found = false;
+            try
+            {
+                StreamWriter tempFile = new StreamWriter("tempT.db", true);
+                StreamReader file = new StreamReader("tables.db");
+                char[] delimiters = new char[] { '\t' };
+                string line;
+                while ((line = file.ReadLine()) != null)
+                {
+                    string[] parts = line.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+                    
+                    if (parts[0] == table)
+                    {
+                        line = parts[0] + "\t" + newPerm;
+                        tempFile.WriteLine(line);
+                        found = true;
+                    }
+                    else
+                    {
+                        tempFile.WriteLine(line);
+                    }
+                }
+
+                tempFile.Close();
+                file.Close();
+
+            }
+            catch (FileNotFoundException e1)
+            {
+                Console.WriteLine("File Not Found!!");
+            }
+            catch (IOException e2)
+            {
+                Console.WriteLine("IOException!!");
+            }
+            File.Delete("tables.db");
+            File.Move("tempT.db", "tables.db");
+            File.Delete("tempT.db");
+            return found;
+        }
+
         private void logoutButton_Click(object sender, EventArgs e)
         {
             this.Hide();
