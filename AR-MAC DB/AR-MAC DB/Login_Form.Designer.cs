@@ -51,6 +51,7 @@
             this.uidTextBox.Name = "uidTextBox";
             this.uidTextBox.Size = new System.Drawing.Size(100, 20);
             this.uidTextBox.TabIndex = 2;
+            this.uidTextBox.Text = "amo282";
             // 
             // pwdTextBox
             // 
@@ -58,6 +59,7 @@
             this.pwdTextBox.Name = "pwdTextBox";
             this.pwdTextBox.Size = new System.Drawing.Size(100, 20);
             this.pwdTextBox.TabIndex = 3;
+            this.pwdTextBox.Text = "test123";
             // 
             // uidLabel
             // 

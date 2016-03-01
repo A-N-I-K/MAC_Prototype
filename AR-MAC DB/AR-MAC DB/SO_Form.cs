@@ -25,9 +25,11 @@ namespace AR_MAC_DB
             {
                 StreamReader file = new StreamReader("user.db");
                 string line;
+                string[] tokens;
                 while ((line = file.ReadLine()) != null)
                 {
-                    listUsersListBox.Items.Add(line);
+                    tokens = line.Split('\t');
+                    listUsersListBox.Items.Add(tokens[2]);
                 }
                 file.Close();
             }
@@ -184,6 +186,11 @@ namespace AR_MAC_DB
             user.perm = permComboBox.Text;
             user.valid = true;
             addUser(user);
+        }
+
+        private void deleteUserButton_Click(object sender, EventArgs e)
+        {
+            deleteUser(listUsersListBox.Text);
         }
     }
 }

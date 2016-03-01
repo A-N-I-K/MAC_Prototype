@@ -90,6 +90,7 @@
             this.deleteUserButton.TabIndex = 4;
             this.deleteUserButton.Text = "Delete User";
             this.deleteUserButton.UseVisualStyleBackColor = true;
+            this.deleteUserButton.Click += new System.EventHandler(this.deleteUserButton_Click);
             // 
             // viewLogButton
             // 
