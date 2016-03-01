@@ -54,6 +54,99 @@ namespace AR_MAC_DB
             }
         }
 
+        public bool deleteUser(string uid)
+        {
+            bool found = false;
+            try{
+
+                StreamWriter tempFile = new StreamWriter("temp.db", true);
+                StreamReader file = new StreamReader("user.db");
+                char[] delimiters = new char[] { '\t' };
+                string line;
+                while ((line = file.ReadLine()) != null)
+                {
+                    string[] parts = line.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+                    for (int i = 0; i < parts.Length; i += 5)
+                    {
+                        if (parts[i + 2] == uid)
+                        {
+                            found = true;
+                            continue;
+                        }
+                        else
+                        {
+                            tempFile.WriteLine(line);
+                        }
+
+                    }
+
+                }
+
+                tempFile.Close();
+                file.Close();
+
+            }
+            catch (FileNotFoundException e1)
+            {
+                Console.WriteLine("File Not Found!!");
+            }
+            catch (IOException e2)
+            {
+                Console.WriteLine("IOException!!");
+            }
+            File.Delete("user.db");
+            File.Move("temp.db", "user.db");
+            File.Delete("temp.db");
+            return found;
+        }
+
+        public bool modifyUser(string uid, string newPerm)
+        {
+            bool found = false;
+            try{
+
+                StreamWriter tempFile = new StreamWriter("temp.db", true);
+                StreamReader file = new StreamReader("user.db");
+                char[] delimiters = new char[] { '\t' };
+                string line;
+                while ((line = file.ReadLine()) != null)
+                {
+                    string[] parts = line.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+                    for (int i = 0; i < parts.Length; i += 5)
+                    {
+                        if (parts[i + 2] == uid)
+                        {
+                            line = parts[i] + "\t" + parts[i + 1] + "\t" + parts[i + 2] + "\t" + parts[i + 3] + "\t" + newPerm;
+                            tempFile.WriteLine(line);
+                            found = true;
+                        }
+                        else
+                        {
+                            tempFile.WriteLine(line);
+                        }
+
+                    }
+
+                }
+
+                tempFile.Close();
+                file.Close();
+
+            }
+            catch (FileNotFoundException e1)
+            {
+                Console.WriteLine("File Not Found!!");
+            }
+            catch (IOException e2)
+            {
+                Console.WriteLine("IOException!!");
+            }
+            File.Delete("user.db");
+            File.Move("temp.db", "user.db");
+            File.Delete("temp.db");
+            return found;
+        }
+
         private void logoutButton_Click(object sender, EventArgs e)
         {
             this.Hide();
