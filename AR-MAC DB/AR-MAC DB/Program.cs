@@ -28,9 +28,10 @@ namespace AR_MAC_DB
         public string pwd;
         public string perm;
         public bool valid;
+    }
 
-        
-
+    public class Logger
+    {
 
     }
 }
