@@ -191,7 +191,7 @@
             this.Controls.Add(this.listUsersButton);
             this.Controls.Add(this.welcomeLabel);
             this.Name = "soForm";
-            this.Text = "SO_Form";
+            this.Text = "System Officer Panel";
             this.ResumeLayout(false);
             this.PerformLayout();
 

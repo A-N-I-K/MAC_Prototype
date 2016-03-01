@@ -61,14 +61,23 @@ namespace AR_MAC_DB
             string pwd = pwdTextBox.Text;
             User user = new User();
             user = authUser(uid, pwd);
-            if (user.valid && user.perm.Equals("SO"))
+            if (user.valid)
             {
                 this.Visible = false;
-                soForm form = new soForm(user);
-                form.Show();
+                if (user.perm.Equals("SO"))
+                {
+                    soForm form = new soForm(user);
+                    form.Show();
+                } else
+                {
+                    userForm form = new userForm(user);
+                    form.Show();
+                }
+            }
+            else
+            {
+
             }
         }
     }
-
-    
 }
