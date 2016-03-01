@@ -24,8 +24,7 @@ namespace AR_MAC_DB
             userObj.valid = false;
             try
             {
-                // Read the database
-                int counter = 0;
+                // Read the database                
                 string line;
                 char[] delimiters = new char[] { '\t' };
                 System.IO.StreamReader file = new System.IO.StreamReader("user.db");
@@ -44,9 +43,8 @@ namespace AR_MAC_DB
                             userObj.valid = true;
                         }
 
-                    }
-                    Console.WriteLine(userObj.fname);
-                    counter++;
+                    }              
+                    
                 }
                 file.Close();
             }
