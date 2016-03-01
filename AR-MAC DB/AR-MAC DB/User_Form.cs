@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace AR_MAC_DB
 {
@@ -59,6 +60,99 @@ namespace AR_MAC_DB
             string type = query.Substring(0, 6);
             return type;
         }
+
+        public string getAccessCode(string accessLevel)
+        {
+            if (accessLevel == "G")
+                return "G";
+            else if (accessLevel == "H")
+                return "GH";
+            else if (accessLevel == "F")
+                return "GF";
+            else if (accessLevel == "E")
+                return "GE";
+            else if (accessLevel == "HF")
+                return "GHGF";
+            else if (accessLevel == "HE")
+                return "GHGE";
+            else if (accessLevel == "FE")
+                return "GFGE";
+            else if (accessLevel == "L")
+                return "GHGFGHGEGFGE";
+            else
+                return "NOACCESS";             
+        }       
+
+        public bool canRead(string uid, string table)
+        {
+
+            StreamReader users = new StreamReader("user.db");
+            StreamReader tables = new StreamReader("tables.db");
+            string line, uAccessLevel="NO", tAccessLevel="NO";
+
+            char[] delimiters = new char[] { '\t' };
+            while ((line = users.ReadLine()) != null)
+            {
+                string[] parts = line.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+
+                if (parts[2] == uid)                
+                    uAccessLevel = parts[4];                
+
+            }
+
+            while ((line = tables.ReadLine()) != null)
+            {
+                string[] parts = line.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+
+                if (parts[0] == table)
+                    tAccessLevel = parts[1];
+                
+            }
+
+            string uaccessCode = getAccessCode(uAccessLevel);            
+            string taccessCode = getAccessCode(tAccessLevel);           
+
+            if (uaccessCode.Contains(taccessCode))
+                return true;
+            else
+                return false;
+        }
+
+        public bool canWrite(string uid, string table)
+        {
+
+            StreamReader users = new StreamReader("user.db");
+            StreamReader tables = new StreamReader("tables.db");
+            string line, uAccessLevel = "NO", tAccessLevel = "NO";
+
+            char[] delimiters = new char[] { '\t' };
+            while ((line = users.ReadLine()) != null)
+            {
+                string[] parts = line.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+
+                if (parts[2] == uid)
+                    uAccessLevel = parts[4];               
+
+            }
+
+            while ((line = tables.ReadLine()) != null)
+            {
+                string[] parts = line.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+
+                if (parts[0] == table)
+                    tAccessLevel = parts[1];                
+            }
+
+            string uaccessCode = getAccessCode(uAccessLevel);            
+            string taccessCode = getAccessCode(tAccessLevel);          
+
+            if (taccessCode.Contains(uaccessCode))
+                return true;
+            else
+                return false;
+        }
+
+
 
         private void commandTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
