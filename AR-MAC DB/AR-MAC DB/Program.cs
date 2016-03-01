@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 
 namespace AR_MAC_DB
 {
-    class UserClass
+    /*class UserClass
     {
         public string fname;
         public string lname;
@@ -59,7 +58,7 @@ namespace AR_MAC_DB
             return userObj;
 
         }
-    }
+    }*/
 
     static class Program
     {

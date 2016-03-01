@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace AR_MAC_DB
 {
@@ -17,16 +18,43 @@ namespace AR_MAC_DB
             InitializeComponent();
         }
 
-        public User authUser(string uid, string pwd)
+        public User authUser(string uname, string pass)
         {
-            User user = new User();
-            user.fname = "Anik";
-            user.lname = "Momtaz";
-            user.uid = uid;
-            user.pwd = pwd;
-            user.perm = "SO";
-            user.valid = true;
-            return user;
+            User userObj = new User();
+            userObj.valid = false;
+            try
+            {
+                // Read the database
+                int counter = 0;
+                string line;
+                char[] delimiters = new char[] { '\t' };
+                System.IO.StreamReader file = new System.IO.StreamReader("user.db");
+                while ((line = file.ReadLine()) != null)
+                {
+                    string[] parts = line.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+                    for (int i = 0; i < parts.Length; i += 5)
+                    {
+                        if (parts[i + 2] == uname && parts[i + 3] == pass)  //validating user name and password
+                        {
+                            userObj.fname = parts[i];
+                            userObj.lname = parts[i + 1];
+                            userObj.uid = parts[i + 2];
+                            userObj.pwd = parts[i + 3];
+                            userObj.perm = parts[i + 4];
+                            userObj.valid = true;
+                        }
+
+                    }
+                    Console.WriteLine(userObj.fname);
+                    counter++;
+                }
+                file.Close();
+            }
+            catch (FileNotFoundException e)
+            {
+                Console.WriteLine("File not found!!!");
+            }
+            return userObj;
         }
 
         private void login_Click(object sender, EventArgs e)
