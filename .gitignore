@@ -9,6 +9,5 @@
 *.opendb
 *.suo
 *.txt
-*.config
 *.Cache
 *.resources
