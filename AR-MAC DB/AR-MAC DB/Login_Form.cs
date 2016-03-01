@@ -38,7 +38,7 @@ namespace AR_MAC_DB
             if (user.valid && user.perm.Equals("SO"))
             {
                 this.Visible = false;
-                soForm form = new soForm();
+                soForm form = new soForm(user);
                 form.Show();
             }
         }

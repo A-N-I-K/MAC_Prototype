@@ -12,9 +12,10 @@ namespace AR_MAC_DB
 {
     public partial class soForm : Form
     {
-        public soForm()
+        public soForm(User user)
         {
             InitializeComponent();
+            welcomeLabel.Text = "Welcome, " + user.fname + " " + user.lname + "!";
         }
     }
 }
