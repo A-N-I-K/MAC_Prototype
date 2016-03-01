@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace AR_MAC_DB
 {
@@ -18,11 +19,34 @@ namespace AR_MAC_DB
             welcomeLabel.Text = "Welcome, " + user.fname + " " + user.lname + "!";
         }
 
+        public void listUsers()
+        {
+            try
+            {
+                System.IO.StreamReader file = new System.IO.StreamReader("user.db");
+                string line;
+                while ((line = file.ReadLine()) != null)
+                {
+                    listUsersListBox.Items.Add(line);
+                }
+            }
+            catch (FileNotFoundException e)
+            {
+                Console.WriteLine("File not found!!!");
+            }
+
+        }
+
         private void logoutButton_Click(object sender, EventArgs e)
         {
             this.Hide();
             loginForm form = new loginForm();
             form.Show();
+        }
+
+        private void listUsersButton_Click(object sender, EventArgs e)
+        {
+            listUsers();
         }
     }
 }

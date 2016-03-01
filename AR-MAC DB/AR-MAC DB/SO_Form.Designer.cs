@@ -35,6 +35,7 @@
             this.deleteUserButton = new System.Windows.Forms.Button();
             this.viewLogButton = new System.Windows.Forms.Button();
             this.logoutButton = new System.Windows.Forms.Button();
+            this.listUsersListBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // welcomeLabel
@@ -54,6 +55,7 @@
             this.listUsersButton.TabIndex = 1;
             this.listUsersButton.Text = "List Users";
             this.listUsersButton.UseVisualStyleBackColor = true;
+            this.listUsersButton.Click += new System.EventHandler(this.listUsersButton_Click);
             // 
             // addUserButton
             // 
@@ -101,11 +103,20 @@
             this.logoutButton.UseVisualStyleBackColor = true;
             this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
+            // listUsersListBox
+            // 
+            this.listUsersListBox.FormattingEnabled = true;
+            this.listUsersListBox.Location = new System.Drawing.Point(370, 71);
+            this.listUsersListBox.Name = "listUsersListBox";
+            this.listUsersListBox.Size = new System.Drawing.Size(332, 329);
+            this.listUsersListBox.TabIndex = 7;
+            // 
             // soForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(763, 522);
+            this.Controls.Add(this.listUsersListBox);
             this.Controls.Add(this.logoutButton);
             this.Controls.Add(this.viewLogButton);
             this.Controls.Add(this.deleteUserButton);
@@ -129,5 +140,6 @@
         private System.Windows.Forms.Button deleteUserButton;
         private System.Windows.Forms.Button viewLogButton;
         private System.Windows.Forms.Button logoutButton;
+        private System.Windows.Forms.ListBox listUsersListBox;
     }
 }
