@@ -23,7 +23,7 @@ namespace AR_MAC_DB
         {
             try
             {
-                System.IO.StreamReader file = new System.IO.StreamReader("user.db");
+                StreamReader file = new StreamReader("user.db");
                 string line;
                 while ((line = file.ReadLine()) != null)
                 {
@@ -48,5 +48,24 @@ namespace AR_MAC_DB
         {
             listUsers();
         }
+
+        public void addUser(User uobject)
+        {
+            try
+            {
+
+                StreamWriter file = new StreamWriter("user.db", true);
+                string line = uobject.fname + "\t" + uobject.lname + "\t" + uobject.uid + "\t" + uobject.pwd + "\t" + uobject.perm;
+                file.WriteLine(line);
+                file.Close();
+
+            }
+            catch (FileNotFoundException e)
+            {
+                Console.WriteLine("File Not Found!!");
+            }
+
+        }
+
     }
 }
