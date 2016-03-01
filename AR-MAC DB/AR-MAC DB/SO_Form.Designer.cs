@@ -99,6 +99,7 @@
             this.logoutButton.TabIndex = 6;
             this.logoutButton.Text = "Log Out";
             this.logoutButton.UseVisualStyleBackColor = true;
+            this.logoutButton.Click += new System.EventHandler(this.logoutButton_Click);
             // 
             // soForm
             // 

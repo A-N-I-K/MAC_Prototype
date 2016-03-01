@@ -17,5 +17,12 @@ namespace AR_MAC_DB
             InitializeComponent();
             welcomeLabel.Text = "Welcome, " + user.fname + " " + user.lname + "!";
         }
+
+        private void logoutButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            loginForm form = new loginForm();
+            form.Show();
+        }
     }
 }
