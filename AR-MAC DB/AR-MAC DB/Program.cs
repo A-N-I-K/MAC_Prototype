@@ -14,9 +14,9 @@ namespace AR_MAC_DB
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new loginForm());
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new loginForm());
         }
     }
 
@@ -29,26 +29,47 @@ namespace AR_MAC_DB
         public string perm;
         public bool valid;
 
-        public static void queryCheck(string query)
+        public void queryCheckSelect(string query)
         {
             query = query.Replace(" ", String.Empty);
             query = query.ToLower();
             int from = query.IndexOf("from");
             int where = query.IndexOf("where");
-            //Console.WriteLine(query);
-            //Console.WriteLine(where);
+           
 
             string tables = query.Substring(from + 4, where - from - 4);
-            //Console.WriteLine(tables);
+            
 
             char[] delimiters = new char[] { ',' };
             string[] parts = tables.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
 
             for (int i = 0; i < parts.Length; i++)
             {
-                //pass parts[i] i.e one of the table names to a function which checks the database to whether the user has permission to access the table.
+                //pass parts[i] i.e one of the table names to a function which checks the database  whether the user has permission to access the table.
             }
 
+        }
+
+        public void queryCheckInsert(string query)
+        {
+            query = query.Replace(" ", String.Empty);
+            query = query.ToLower();
+            int into = query.IndexOf("into");
+            int bracket = query.IndexOf("(");
+
+
+            string table = query.Substring(into + 4, bracket - into - 4);
+
+            //pass table to a function which checks the database whether the user has permission to access the table.
+
+        }
+
+        public string queryType(string query)
+        {
+            query = query.Replace(" ", String.Empty);
+            query = query.ToLower();
+            string type = query.Substring(0, 6);            
+            return type;
         }
 
 
