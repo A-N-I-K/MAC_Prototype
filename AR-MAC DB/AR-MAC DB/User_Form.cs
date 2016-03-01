@@ -16,5 +16,15 @@ namespace AR_MAC_DB
         {
             InitializeComponent();
         }
+
+        private void commandTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                //consoleListBox.Items.Add(commandTextBox.Text);
+                consoleListBox.Items.Insert(0, commandTextBox.Text);
+                commandTextBox.Text=String.Empty;
+            }
+        }
     }
 }

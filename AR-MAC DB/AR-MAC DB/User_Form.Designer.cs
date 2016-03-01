@@ -28,19 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.consoleListBox = new System.Windows.Forms.ListBox();
+            this.commandTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
+            // 
+            // consoleListBox
+            // 
+            this.consoleListBox.FormattingEnabled = true;
+            this.consoleListBox.Location = new System.Drawing.Point(37, 67);
+            this.consoleListBox.Name = "consoleListBox";
+            this.consoleListBox.Size = new System.Drawing.Size(753, 316);
+            this.consoleListBox.TabIndex = 0;
+            // 
+            // commandTextBox
+            // 
+            this.commandTextBox.Location = new System.Drawing.Point(37, 41);
+            this.commandTextBox.Name = "commandTextBox";
+            this.commandTextBox.Size = new System.Drawing.Size(753, 20);
+            this.commandTextBox.TabIndex = 1;
+            this.commandTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.commandTextBox_KeyPress);
             // 
             // userForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(802, 474);
+            this.Controls.Add(this.commandTextBox);
+            this.Controls.Add(this.consoleListBox);
             this.Name = "userForm";
             this.Text = "User Panel";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.ListBox consoleListBox;
+        private System.Windows.Forms.TextBox commandTextBox;
     }
 }
