@@ -18,39 +18,56 @@ namespace AR_MAC_DB
             InitializeComponent();
         }
 
-        public void queryCheckSelect(string query)
+        public bool queryCheckSelect(string query, string uid)
         {
-            query = query.Replace(" ", String.Empty);
-            query = query.ToLower();
-            int from = query.IndexOf("from");
-            int where = query.IndexOf("where");
-
-
-            string tables = query.Substring(from + 4, where - from - 4);
-
-
-            char[] delimiters = new char[] { ',' };
-            string[] parts = tables.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
-
-            for (int i = 0; i < parts.Length; i++)
+            if (queryType(query) != "select")
+                return false;
+            else
             {
-                //pass parts[i] i.e one of the table names to a function which checks the database  whether the user has permission to access the table.
-            }
+                query = query.Replace(" ", String.Empty);
+                query = query.ToLower();
+                int from = query.IndexOf("from");
+                int where = query.IndexOf("where");
 
+
+                string tables = query.Substring(from + 4, where - from - 4);
+
+
+                char[] delimiters = new char[] { ',' };
+                string[] parts = tables.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+                int found = 0;
+                for (int i = 0; i < parts.Length; i++)
+                {
+                    if (canRead(uid, parts[i]))    //pass parts[i] i.e one of the table names to a function which checks the database  whether the user has permission to access the table.
+                        found++;
+                }
+
+                if (found > 0)
+                    return true;
+                else
+                    return false;
+            }
         }
 
-        public void queryCheckInsert(string query)
+        public bool queryCheckInsert(string query, string uid)
         {
-            query = query.Replace(" ", String.Empty);
-            query = query.ToLower();
-            int into = query.IndexOf("into");
-            int bracket = query.IndexOf("(");
+            if (queryType(query) != "insert")
+                return false;
+            else
+            {
+                query = query.Replace(" ", String.Empty);
+                query = query.ToLower();
+                int into = query.IndexOf("into");
+                int bracket = query.IndexOf("(");
 
 
-            string table = query.Substring(into + 4, bracket - into - 4);
+                string table = query.Substring(into + 4, bracket - into - 4);
 
-            //pass table to a function which checks the database whether the user has permission to access the table.
-
+                if (canWrite(uid, table))                    //pass table to a function which checks the database whether the user has permission to access the table.
+                    return true;
+                else
+                    return false;
+            }
         }
 
         public string queryType(string query)
