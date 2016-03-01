@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AR_MAC_DB
 {
-    public partial class Form1 : Form
+    public partial class soForm : Form
     {
-        public Form1()
+        public soForm()
         {
             InitializeComponent();
         }
