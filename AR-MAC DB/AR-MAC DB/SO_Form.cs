@@ -248,18 +248,11 @@ namespace AR_MAC_DB
         {
             string line;
             line = "";
-            bool hasNext = true;
-            while (hasNext)
-            {
+            line = log.readNext(line);            
+            while (line!=null)
+            {                
+                logListBox.Items.Add(line);
                 line = log.readNext(line);
-                if (line.Equals(""))
-                {
-                    hasNext = false;
-                }
-                else
-                {
-                    logListBox.Items.Add(line);
-                }
             }
         }
     }
