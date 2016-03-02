@@ -48,7 +48,7 @@
             // welcomeLabel
             // 
             this.welcomeLabel.AutoSize = true;
-            this.welcomeLabel.Location = new System.Drawing.Point(52, 69);
+            this.welcomeLabel.Location = new System.Drawing.Point(12, 9);
             this.welcomeLabel.Name = "welcomeLabel";
             this.welcomeLabel.Size = new System.Drawing.Size(55, 13);
             this.welcomeLabel.TabIndex = 0;
@@ -56,7 +56,7 @@
             // 
             // listUsersButton
             // 
-            this.listUsersButton.Location = new System.Drawing.Point(55, 113);
+            this.listUsersButton.Location = new System.Drawing.Point(12, 54);
             this.listUsersButton.Name = "listUsersButton";
             this.listUsersButton.Size = new System.Drawing.Size(75, 23);
             this.listUsersButton.TabIndex = 1;
@@ -66,7 +66,7 @@
             // 
             // addUserButton
             // 
-            this.addUserButton.Location = new System.Drawing.Point(55, 142);
+            this.addUserButton.Location = new System.Drawing.Point(12, 83);
             this.addUserButton.Name = "addUserButton";
             this.addUserButton.Size = new System.Drawing.Size(75, 23);
             this.addUserButton.TabIndex = 2;
@@ -76,7 +76,7 @@
             // 
             // modifyUserButton
             // 
-            this.modifyUserButton.Location = new System.Drawing.Point(55, 171);
+            this.modifyUserButton.Location = new System.Drawing.Point(12, 112);
             this.modifyUserButton.Name = "modifyUserButton";
             this.modifyUserButton.Size = new System.Drawing.Size(75, 23);
             this.modifyUserButton.TabIndex = 3;
@@ -85,7 +85,7 @@
             // 
             // deleteUserButton
             // 
-            this.deleteUserButton.Location = new System.Drawing.Point(55, 200);
+            this.deleteUserButton.Location = new System.Drawing.Point(12, 141);
             this.deleteUserButton.Name = "deleteUserButton";
             this.deleteUserButton.Size = new System.Drawing.Size(75, 23);
             this.deleteUserButton.TabIndex = 4;
@@ -95,7 +95,7 @@
             // 
             // viewLogButton
             // 
-            this.viewLogButton.Location = new System.Drawing.Point(55, 229);
+            this.viewLogButton.Location = new System.Drawing.Point(12, 170);
             this.viewLogButton.Name = "viewLogButton";
             this.viewLogButton.Size = new System.Drawing.Size(75, 23);
             this.viewLogButton.TabIndex = 5;
@@ -105,7 +105,7 @@
             // 
             // logoutButton
             // 
-            this.logoutButton.Location = new System.Drawing.Point(55, 258);
+            this.logoutButton.Location = new System.Drawing.Point(12, 199);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Size = new System.Drawing.Size(75, 23);
             this.logoutButton.TabIndex = 6;
@@ -116,14 +116,14 @@
             // listUsersListBox
             // 
             this.listUsersListBox.FormattingEnabled = true;
-            this.listUsersListBox.Location = new System.Drawing.Point(192, 60);
+            this.listUsersListBox.Location = new System.Drawing.Point(103, 62);
             this.listUsersListBox.Name = "listUsersListBox";
-            this.listUsersListBox.Size = new System.Drawing.Size(232, 329);
+            this.listUsersListBox.Size = new System.Drawing.Size(86, 160);
             this.listUsersListBox.TabIndex = 7;
             // 
             // fnameTextBox
             // 
-            this.fnameTextBox.Location = new System.Drawing.Point(561, 69);
+            this.fnameTextBox.Location = new System.Drawing.Point(507, 11);
             this.fnameTextBox.Name = "fnameTextBox";
             this.fnameTextBox.Size = new System.Drawing.Size(100, 20);
             this.fnameTextBox.TabIndex = 8;
@@ -131,7 +131,7 @@
             // 
             // lnameTextBox
             // 
-            this.lnameTextBox.Location = new System.Drawing.Point(561, 96);
+            this.lnameTextBox.Location = new System.Drawing.Point(507, 38);
             this.lnameTextBox.Name = "lnameTextBox";
             this.lnameTextBox.Size = new System.Drawing.Size(100, 20);
             this.lnameTextBox.TabIndex = 9;
@@ -139,7 +139,7 @@
             // 
             // uidTextBox
             // 
-            this.uidTextBox.Location = new System.Drawing.Point(561, 123);
+            this.uidTextBox.Location = new System.Drawing.Point(507, 65);
             this.uidTextBox.Name = "uidTextBox";
             this.uidTextBox.Size = new System.Drawing.Size(100, 20);
             this.uidTextBox.TabIndex = 10;
@@ -147,7 +147,7 @@
             // 
             // pwdTextBox
             // 
-            this.pwdTextBox.Location = new System.Drawing.Point(561, 150);
+            this.pwdTextBox.Location = new System.Drawing.Point(507, 92);
             this.pwdTextBox.Name = "pwdTextBox";
             this.pwdTextBox.Size = new System.Drawing.Size(100, 20);
             this.pwdTextBox.TabIndex = 11;
@@ -156,7 +156,7 @@
             // permComboBox
             // 
             this.permComboBox.FormattingEnabled = true;
-            this.permComboBox.Location = new System.Drawing.Point(561, 176);
+            this.permComboBox.Location = new System.Drawing.Point(507, 118);
             this.permComboBox.Name = "permComboBox";
             this.permComboBox.Size = new System.Drawing.Size(100, 21);
             this.permComboBox.TabIndex = 12;
@@ -164,7 +164,7 @@
             // 
             // submitButton
             // 
-            this.submitButton.Location = new System.Drawing.Point(561, 203);
+            this.submitButton.Location = new System.Drawing.Point(507, 145);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(75, 23);
             this.submitButton.TabIndex = 13;
@@ -176,9 +176,9 @@
             // logListBox
             // 
             this.logListBox.FormattingEnabled = true;
-            this.logListBox.Location = new System.Drawing.Point(727, 48);
+            this.logListBox.Location = new System.Drawing.Point(12, 233);
             this.logListBox.Name = "logListBox";
-            this.logListBox.Size = new System.Drawing.Size(256, 368);
+            this.logListBox.Size = new System.Drawing.Size(998, 277);
             this.logListBox.TabIndex = 14;
             // 
             // soForm
