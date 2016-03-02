@@ -50,3 +50,7 @@ NOTICE	|	10:47:35 PM	|	AR_MAC_DB.User has successfully logged out
 NOTICE	|	10:48:29 PM	|	mrk123 has successfully logged in with G privileges.
 NOTICE	|	10:48:46 PM	|	AR_MAC_DB.User has successfully queried : SELECT * from table1
 NOTICE	|	10:49:02 PM	|	AR_MAC_DB.User has successfully queried : INSERT into table1 (c1,c2,c3) 
+NOTICE	|	11:07:32 PM	|	amo282 has successfully logged in with SO privileges.
+NOTICE	|	11:20:28 PM	|	amo282 has successfully logged in with SO privileges.
+NOTICE	|	11:21:05 PM	|	amo282 has successfully logged in with SO privileges.
+NOTICE	|	11:22:17 PM	|	amo282 has successfully logged in with SO privileges.

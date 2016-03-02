@@ -37,7 +37,7 @@
             // 
             // login
             // 
-            this.login.Location = new System.Drawing.Point(355, 185);
+            this.login.Location = new System.Drawing.Point(110, 142);
             this.login.Name = "login";
             this.login.Size = new System.Drawing.Size(75, 23);
             this.login.TabIndex = 1;
@@ -47,24 +47,23 @@
             // 
             // uidTextBox
             // 
-            this.uidTextBox.Location = new System.Drawing.Point(355, 133);
+            this.uidTextBox.Location = new System.Drawing.Point(110, 90);
             this.uidTextBox.Name = "uidTextBox";
             this.uidTextBox.Size = new System.Drawing.Size(100, 20);
             this.uidTextBox.TabIndex = 2;
-            this.uidTextBox.Text = "amo282";
             // 
             // pwdTextBox
             // 
-            this.pwdTextBox.Location = new System.Drawing.Point(355, 159);
+            this.pwdTextBox.Location = new System.Drawing.Point(110, 116);
             this.pwdTextBox.Name = "pwdTextBox";
+            this.pwdTextBox.PasswordChar = '*';
             this.pwdTextBox.Size = new System.Drawing.Size(100, 20);
             this.pwdTextBox.TabIndex = 3;
-            this.pwdTextBox.Text = "test123";
             // 
             // uidLabel
             // 
             this.uidLabel.AutoSize = true;
-            this.uidLabel.Location = new System.Drawing.Point(294, 136);
+            this.uidLabel.Location = new System.Drawing.Point(49, 93);
             this.uidLabel.Name = "uidLabel";
             this.uidLabel.Size = new System.Drawing.Size(55, 13);
             this.uidLabel.TabIndex = 4;
@@ -73,7 +72,7 @@
             // pwdLabel
             // 
             this.pwdLabel.AutoSize = true;
-            this.pwdLabel.Location = new System.Drawing.Point(296, 162);
+            this.pwdLabel.Location = new System.Drawing.Point(51, 119);
             this.pwdLabel.Name = "pwdLabel";
             this.pwdLabel.Size = new System.Drawing.Size(53, 13);
             this.pwdLabel.TabIndex = 5;
@@ -83,7 +82,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.ClientSize = new System.Drawing.Size(273, 270);
             this.Controls.Add(this.pwdLabel);
             this.Controls.Add(this.uidLabel);
             this.Controls.Add(this.pwdTextBox);

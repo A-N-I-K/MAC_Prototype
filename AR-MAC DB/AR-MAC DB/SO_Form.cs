@@ -24,6 +24,16 @@ namespace AR_MAC_DB
             permComboBox.Items.Add("SO");
             permComboBox.Items.Add("P");
             permComboBox.Items.Add("G");
+            tablePermComboBox.Text = "G";
+            tablePermComboBox.Items.Add("G");
+            tablePermComboBox.Items.Add("H");
+            tablePermComboBox.Items.Add("F");
+            tablePermComboBox.Items.Add("E");
+            tablePermComboBox.Items.Add("HF");
+            tablePermComboBox.Items.Add("HE");
+            tablePermComboBox.Items.Add("FE");
+            tablePermComboBox.Items.Add("L");
+            tablePermComboBox.Items.Add("E");
             this.user = user;
         }
 
@@ -46,7 +56,6 @@ namespace AR_MAC_DB
             {
                 Console.WriteLine("File not found!!!");
             }
-
         }
 
         public void addUser(User uobject)
@@ -158,9 +167,25 @@ namespace AR_MAC_DB
             return found;
         }
 
-        public void listTable()
+        public void listTables()
         {
-
+            listTablesListBox.Items.Clear();
+            try
+            {
+                StreamReader file = new StreamReader("tables.db");
+                string line;
+                string[] tokens;
+                while ((line = file.ReadLine()) != null)
+                {
+                    tokens = line.Split('\t');
+                    listTablesListBox.Items.Add(tokens[0] + "\t" + tokens[1]);
+                }
+                file.Close();
+            }
+            catch (FileNotFoundException e)
+            {
+                Console.WriteLine("File not found!!!");
+            }
         }
 
         public bool modifyTable(string table, string newPerm)
@@ -190,7 +215,6 @@ namespace AR_MAC_DB
 
                 tempFile.Close();
                 file.Close();
-
             }
             catch (FileNotFoundException e1)
             {
@@ -203,6 +227,7 @@ namespace AR_MAC_DB
             File.Delete("tables.db");
             File.Move("tempT.db", "tables.db");
             File.Delete("tempT.db");
+            listTables();
             return found;
         }
 
@@ -287,7 +312,25 @@ namespace AR_MAC_DB
             modifyUser(uidTextBox.Text, permComboBox.Text);
         }
 
-        private void listUsersListBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void listTablesButton_Click(object sender, EventArgs e)
+        {
+            listTables();
+        }
+
+        private void modifyTableButton_Click(object sender, EventArgs e)
+        {
+            modifyTable(tableNameTextBox.Text, tablePermComboBox.Text);
+        }
+
+        private void listTablesListBox_Click(object sender, EventArgs e)
+        {
+            string[] tokens;
+            tokens = listTablesListBox.Text.Split('\t');
+            tableNameTextBox.Text = tokens[0];
+            tablePermComboBox.Text = tokens[1];
+        }
+
+        private void tableSubmit_Click(object sender, EventArgs e)
         {
 
         }
