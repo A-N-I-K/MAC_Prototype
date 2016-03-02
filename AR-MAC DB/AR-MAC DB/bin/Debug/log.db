@@ -54,3 +54,14 @@ NOTICE	|	11:07:32 PM	|	amo282 has successfully logged in with SO privileges.
 NOTICE	|	11:20:28 PM	|	amo282 has successfully logged in with SO privileges.
 NOTICE	|	11:21:05 PM	|	amo282 has successfully logged in with SO privileges.
 NOTICE	|	11:22:17 PM	|	amo282 has successfully logged in with SO privileges.
+NOTICE	|	11:43:32 PM	|	abc123 has successfully logged in with SO privileges.
+NOTICE	|	11:43:43 PM	|	AR_MAC_DB.User has successfully logged out
+NOTICE	|	11:44:40 PM	|	mrk123 has successfully logged in with G privileges.
+VIOLATION	|	11:44:54 PM	|	AR_MAC_DB.User has unsuccessfully queried-Access violation : SELECT * from table8
+NOTICE	|	11:45:28 PM	|	abc123 has successfully logged in with SO privileges.
+NOTICE	|	11:46:03 PM	|	AR_MAC_DB.User has successfully logged out
+NOTICE	|	11:48:48 PM	|	abc123 has successfully logged in with SO privileges.
+NOTICE	|	11:48:57 PM	|	AR_MAC_DB.User has successfully logged out
+NOTICE	|	11:49:29 PM	|	abc123 has successfully logged in with SO privileges.
+NOTICE	|	11:49:59 PM	|	AR_MAC_DB.User has viewed the list of users
+NOTICE	|	11:50:04 PM	|	AR_MAC_DB.User has successfully logged out

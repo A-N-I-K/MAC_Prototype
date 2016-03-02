@@ -23,8 +23,15 @@ namespace AR_MAC_DB
             welcomeLabel.Text = "Welcome, " + user.fname + " " + user.lname + "!";
             permComboBox.Text = "SO";
             permComboBox.Items.Add("SO");
-            permComboBox.Items.Add("P");
             permComboBox.Items.Add("G");
+            permComboBox.Items.Add("H");
+            permComboBox.Items.Add("F");
+            permComboBox.Items.Add("E");
+            permComboBox.Items.Add("HF");
+            permComboBox.Items.Add("HE");
+            permComboBox.Items.Add("FE");
+            permComboBox.Items.Add("L");         
+
             tablePermComboBox.Text = "G";
             tablePermComboBox.Items.Add("G");
             tablePermComboBox.Items.Add("H");
@@ -34,7 +41,7 @@ namespace AR_MAC_DB
             tablePermComboBox.Items.Add("HE");
             tablePermComboBox.Items.Add("FE");
             tablePermComboBox.Items.Add("L");
-            tablePermComboBox.Items.Add("E");
+            
         }
 
         public void listUsers()
