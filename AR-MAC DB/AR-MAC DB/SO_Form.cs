@@ -16,10 +16,10 @@ namespace AR_MAC_DB
         User user = new User();
         Logger log = new Logger();
 
-        public soForm(User user)
-        {
+        public soForm(User u)
+        {            
             InitializeComponent();
-            this.user = user;
+            this.user = u;
             welcomeLabel.Text = "Welcome, " + user.fname + " " + user.lname + "!";
             permComboBox.Text = "SO";
             permComboBox.Items.Add("SO");
@@ -243,14 +243,14 @@ namespace AR_MAC_DB
             this.Hide();
             loginForm form = new loginForm();
             form.Show();
-            log.append(this.user + " has successfully logged out", "NOTICE");
+            log.append(this.user.uid + " has successfully logged out", "NOTICE");
         }
 
         private void listUsersButton_Click(object sender, EventArgs e)
         {
             listUsersListBox.Items.Clear();
             listUsers();
-            log.append(this.user + " has viewed the list of users", "NOTICE");
+            log.append(this.user.uid + " has viewed the list of users", "NOTICE");
         }
 
         private void addUserButton_Click(object sender, EventArgs e)
@@ -274,7 +274,7 @@ namespace AR_MAC_DB
             user.valid = true;
             addUser(user);
 
-            log.append(this.user + " has added new user : " +user.uid, "NOTICE");
+            log.append(this.user.uid + " has added new user : " +user.uid, "NOTICE");
         }
 
         private void deleteUserButton_Click(object sender, EventArgs e)
@@ -283,7 +283,7 @@ namespace AR_MAC_DB
             tokens = listUsersListBox.Text.Split('\t');
             bool successful = deleteUser(tokens[2]);
             if(successful)
-                log.append(this.user + " has deleted the user : " + listUsersListBox.Text, "NOTICE");
+                log.append(this.user.uid + " has deleted the user : " + listUsersListBox.Text, "NOTICE");
         }
 
         private void viewLogButton_Click(object sender, EventArgs e)
