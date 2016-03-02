@@ -43,12 +43,13 @@ namespace AR_MAC_DB
 
         public string readNext(String info)
         {
-            StreamReader file = new StreamReader("user.db");
-            string line;
+            StreamReader file = new StreamReader("log.db");
+            string line,line2;
             if (info.Equals(""))
             {
                 if ((line = file.ReadLine()) != null)
                 {
+                    file.Close();
                     return line;
                 }
             }
@@ -56,9 +57,12 @@ namespace AR_MAC_DB
             {
                 if (line.Equals(info))
                 {
-                    return file.ReadLine();
+                    line2 = file.ReadLine(); 
+                    file.Close();
+                    return line2;
                 }
             }
+            file.Close();
             return "";
         }
     }
