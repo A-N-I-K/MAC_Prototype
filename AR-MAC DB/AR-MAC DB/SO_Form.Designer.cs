@@ -42,6 +42,7 @@
             this.pwdTextBox = new System.Windows.Forms.TextBox();
             this.permComboBox = new System.Windows.Forms.ComboBox();
             this.submitButton = new System.Windows.Forms.Button();
+            this.logListBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // welcomeLabel
@@ -100,6 +101,7 @@
             this.viewLogButton.TabIndex = 5;
             this.viewLogButton.Text = "View Log";
             this.viewLogButton.UseVisualStyleBackColor = true;
+            this.viewLogButton.Click += new System.EventHandler(this.viewLogButton_Click);
             // 
             // logoutButton
             // 
@@ -171,11 +173,20 @@
             this.submitButton.Visible = false;
             this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
+            // logListBox
+            // 
+            this.logListBox.FormattingEnabled = true;
+            this.logListBox.Location = new System.Drawing.Point(727, 48);
+            this.logListBox.Name = "logListBox";
+            this.logListBox.Size = new System.Drawing.Size(256, 368);
+            this.logListBox.TabIndex = 14;
+            // 
             // soForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(763, 522);
+            this.ClientSize = new System.Drawing.Size(1045, 522);
+            this.Controls.Add(this.logListBox);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.permComboBox);
             this.Controls.Add(this.pwdTextBox);
@@ -213,5 +224,6 @@
         private System.Windows.Forms.TextBox pwdTextBox;
         private System.Windows.Forms.ComboBox permComboBox;
         private System.Windows.Forms.Button submitButton;
+        private System.Windows.Forms.ListBox logListBox;
     }
 }

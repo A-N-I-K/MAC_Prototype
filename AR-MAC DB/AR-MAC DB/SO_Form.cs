@@ -23,6 +23,8 @@ namespace AR_MAC_DB
             this.user = user;
         }       
 
+        Logger log = new Logger();
+
         public void listUsers()
         {
             try
@@ -242,6 +244,25 @@ namespace AR_MAC_DB
             bool successful = deleteUser(listUsersListBox.Text);
             if(successful)
                 log.append(this.user + " has deleted the user : " + listUsersListBox.Text, "NOTICE");
+        }
+
+        private void viewLogButton_Click(object sender, EventArgs e)
+        {
+            string line;
+            line = "";
+            bool hasNext = true;
+            while (hasNext)
+            {
+                line = log.readNext(line);
+                if (line.Equals(""))
+                {
+                    hasNext = false;
+                }
+                else
+                {
+                    logListBox.Items.Add(line);
+                }
+            }
         }
     }
 }
