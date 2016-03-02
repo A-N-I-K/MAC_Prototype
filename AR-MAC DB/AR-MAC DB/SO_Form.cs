@@ -20,11 +20,16 @@ namespace AR_MAC_DB
         {
             InitializeComponent();
             welcomeLabel.Text = "Welcome, " + user.fname + " " + user.lname + "!";
+            permComboBox.Text = "SO";
+            permComboBox.Items.Add("SO");
+            permComboBox.Items.Add("P");
+            permComboBox.Items.Add("G");
             this.user = user;
         }
 
         public void listUsers()
         {
+            listUsersListBox.Items.Clear();
             try
             {
                 StreamReader file = new StreamReader("user.db");
@@ -33,7 +38,7 @@ namespace AR_MAC_DB
                 while ((line = file.ReadLine()) != null)
                 {
                     tokens = line.Split('\t');
-                    listUsersListBox.Items.Add(tokens[2]);
+                    listUsersListBox.Items.Add(tokens[0] + "\t" + tokens[1] + "\t" + tokens[2] + "\t" + tokens[3] + "\t" + tokens[4]);
                 }
                 file.Close();
             }
@@ -58,6 +63,7 @@ namespace AR_MAC_DB
             {
                 Console.WriteLine("File Not Found!!");
             }
+            listUsers();
         }
 
         public bool deleteUser(string uid)
@@ -101,6 +107,7 @@ namespace AR_MAC_DB
             File.Delete("user.db");
             File.Move("temp.db", "user.db");
             File.Delete("temp.db");
+            listUsers();
             return found;
         }
 
@@ -135,7 +142,6 @@ namespace AR_MAC_DB
 
                 tempFile.Close();
                 file.Close();
-
             }
             catch (FileNotFoundException e1)
             {
@@ -148,6 +154,7 @@ namespace AR_MAC_DB
             File.Delete("user.db");
             File.Move("temp.db", "user.db");
             File.Delete("temp.db");
+            listUsers();
             return found;
         }
 
@@ -217,10 +224,6 @@ namespace AR_MAC_DB
             pwdTextBox.Visible = true;
             permComboBox.Visible = true;
             submitButton.Visible = true;
-            permComboBox.Text = "SO";
-            permComboBox.Items.Add("SO");
-            permComboBox.Items.Add("P");
-            permComboBox.Items.Add("G");            
         }
 
         private void submitButton_Click(object sender, EventArgs e)
@@ -239,7 +242,9 @@ namespace AR_MAC_DB
 
         private void deleteUserButton_Click(object sender, EventArgs e)
         {
-            bool successful = deleteUser(listUsersListBox.Text);
+            string[] tokens;
+            tokens = listUsersListBox.Text.Split('\t');
+            bool successful = deleteUser(tokens[2]);
             if(successful)
                 log.append(this.user + " has deleted the user : " + listUsersListBox.Text, "NOTICE");
         }
@@ -254,6 +259,32 @@ namespace AR_MAC_DB
                 logListBox.Items.Add(line);
                 line = log.readNext(line);
             }
+        }
+
+        private void listUsersListBox_Click(object sender, EventArgs e)
+        {
+            string[] tokens;
+            tokens = listUsersListBox.Text.Split('\t');
+            fnameTextBox.Visible = true;
+            lnameTextBox.Visible = true;
+            uidTextBox.Visible = true;
+            pwdTextBox.Visible = true;
+            permComboBox.Visible = true;
+            fnameTextBox.Text = tokens[0];
+            lnameTextBox.Text = tokens[1];
+            uidTextBox.Text = tokens[2];
+            pwdTextBox.Text = tokens[3];
+            permComboBox.Text = tokens[4];
+        }
+
+        private void modifyUserButton_Click(object sender, EventArgs e)
+        {
+            modifyUser(uidTextBox.Text, permComboBox.Text);
+        }
+
+        private void listUsersListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

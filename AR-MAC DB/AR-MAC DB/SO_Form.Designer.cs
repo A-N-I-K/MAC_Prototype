@@ -82,6 +82,7 @@
             this.modifyUserButton.TabIndex = 3;
             this.modifyUserButton.Text = "Modify User";
             this.modifyUserButton.UseVisualStyleBackColor = true;
+            this.modifyUserButton.Click += new System.EventHandler(this.modifyUserButton_Click);
             // 
             // deleteUserButton
             // 
@@ -118,8 +119,10 @@
             this.listUsersListBox.FormattingEnabled = true;
             this.listUsersListBox.Location = new System.Drawing.Point(103, 62);
             this.listUsersListBox.Name = "listUsersListBox";
-            this.listUsersListBox.Size = new System.Drawing.Size(86, 160);
+            this.listUsersListBox.Size = new System.Drawing.Size(376, 160);
             this.listUsersListBox.TabIndex = 7;
+            this.listUsersListBox.Click += new System.EventHandler(this.listUsersListBox_Click);
+            this.listUsersListBox.SelectedIndexChanged += new System.EventHandler(this.listUsersListBox_SelectedIndexChanged);
             // 
             // fnameTextBox
             // 
