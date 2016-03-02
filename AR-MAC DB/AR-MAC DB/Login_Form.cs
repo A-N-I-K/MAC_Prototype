@@ -18,6 +18,8 @@ namespace AR_MAC_DB
             InitializeComponent();
         }
 
+        Logger log = new Logger();
+
         public User authUser(string uname, string pass)
         {
             User user = new User();
@@ -63,6 +65,7 @@ namespace AR_MAC_DB
             user = authUser(uid, pwd);
             if (user.valid)
             {
+                log.append(user.uid + " has successfully logged in with " + user.perm + " privileges.", "NOTICE");
                 this.Visible = false;
                 if (user.perm.Equals("SO"))
                 {

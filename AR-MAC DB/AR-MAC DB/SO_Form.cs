@@ -83,10 +83,8 @@ namespace AR_MAC_DB
                     }
 
                 }
-
                 tempFile.Close();
                 file.Close();
-
             }
             catch (FileNotFoundException e1)
             {
