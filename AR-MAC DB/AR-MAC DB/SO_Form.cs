@@ -19,6 +19,7 @@ namespace AR_MAC_DB
         public soForm(User user)
         {
             InitializeComponent();
+            this.user = user;
             welcomeLabel.Text = "Welcome, " + user.fname + " " + user.lname + "!";
             permComboBox.Text = "SO";
             permComboBox.Items.Add("SO");
@@ -34,7 +35,6 @@ namespace AR_MAC_DB
             tablePermComboBox.Items.Add("FE");
             tablePermComboBox.Items.Add("L");
             tablePermComboBox.Items.Add("E");
-            this.user = user;
         }
 
         public void listUsers()
