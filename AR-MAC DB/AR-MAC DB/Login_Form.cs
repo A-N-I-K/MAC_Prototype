@@ -13,12 +13,12 @@ namespace AR_MAC_DB
 {
     public partial class loginForm : Form
     {
+        Logger log = new Logger();
+
         public loginForm()
         {
             InitializeComponent();
         }
-
-        Logger log = new Logger();
 
         public User authUser(string uname, string pass)
         {

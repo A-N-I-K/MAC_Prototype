@@ -21,9 +21,7 @@ namespace AR_MAC_DB
             InitializeComponent();
             welcomeLabel.Text = "Welcome, " + user.fname + " " + user.lname + "!";
             this.user = user;
-        }       
-
-        Logger log = new Logger();
+        }
 
         public void listUsers()
         {
