@@ -13,9 +13,12 @@ namespace AR_MAC_DB
 {
     public partial class userForm : Form
     {
+        User user = new User();
+
         public userForm(User user)
         {
             InitializeComponent();
+            this.user = user;
         }
 
         public bool queryCheckSelect(string query, string uid)

@@ -13,11 +13,15 @@ namespace AR_MAC_DB
 {
     public partial class soForm : Form
     {
+        User user = new User();
+        Logger log = new Logger();
+
         public soForm(User user)
         {
             InitializeComponent();
             welcomeLabel.Text = "Welcome, " + user.fname + " " + user.lname + "!";
-        }
+            this.user = user;
+        }       
 
         public void listUsers()
         {
@@ -191,16 +195,18 @@ namespace AR_MAC_DB
         }
 
         private void logoutButton_Click(object sender, EventArgs e)
-        {
+        {            
             this.Hide();
             loginForm form = new loginForm();
             form.Show();
+            log.append(this.user + " has successfully logged out", "NOTICE");
         }
 
         private void listUsersButton_Click(object sender, EventArgs e)
         {
             listUsersListBox.Items.Clear();
             listUsers();
+            log.append(this.user + " has viewed the list of users", "NOTICE");
         }
 
         private void addUserButton_Click(object sender, EventArgs e)
@@ -214,7 +220,7 @@ namespace AR_MAC_DB
             permComboBox.Text = "SO";
             permComboBox.Items.Add("SO");
             permComboBox.Items.Add("P");
-            permComboBox.Items.Add("G");
+            permComboBox.Items.Add("G");            
         }
 
         private void submitButton_Click(object sender, EventArgs e)
@@ -227,11 +233,15 @@ namespace AR_MAC_DB
             user.perm = permComboBox.Text;
             user.valid = true;
             addUser(user);
+
+            log.append(this.user + " has added new user : " +user.uid, "NOTICE");
         }
 
         private void deleteUserButton_Click(object sender, EventArgs e)
         {
-            deleteUser(listUsersListBox.Text);
+            bool successful = deleteUser(listUsersListBox.Text);
+            if(successful)
+                log.append(this.user + " has deleted the user : " + listUsersListBox.Text, "NOTICE");
         }
     }
 }
