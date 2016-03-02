@@ -172,15 +172,37 @@ namespace AR_MAC_DB
                 return false;
         }
 
-
-
         private void commandTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                string type = queryType(commandTextBox.Text);
-                consoleListBox.Items.Insert(0, commandTextBox.Text);
+                string query = commandTextBox.Text;
+                consoleListBox.Items.Insert(0, query);
                 //consoleListBox.Items.Insert(0, type); //For query analysis
+                if (query.ToLower().Equals("exit"))
+                {
+                    this.Hide();
+                    loginForm form = new loginForm();
+                    form.Show();
+                }
+                string type = queryType(query);
+                if (type.Equals("select") || type.Equals("insert"))
+                {
+                    if (queryCheckSelect(query, user.uid) || queryCheckInsert(query, user.uid))
+                    {
+                        consoleListBox.Items.Insert(0, "Query successful!");
+                        //log entry NOTICE
+                    } else
+                    {
+                        consoleListBox.Items.Insert(0, "Access violation attempted. This incident will be reported.");
+                        //log entry VIOLATION
+                    }
+                }
+                else
+                {
+                    consoleListBox.Items.Insert(0, "Syntax error.");
+                    //log entry ERROR
+                }
                 commandTextBox.Text = String.Empty;
             }
         }
