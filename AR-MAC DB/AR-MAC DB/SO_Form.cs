@@ -158,6 +158,11 @@ namespace AR_MAC_DB
             return found;
         }
 
+        public void listTable()
+        {
+
+        }
+
         public bool modifyTable(string table, string newPerm)
         {
             bool found = false;

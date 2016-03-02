@@ -43,6 +43,12 @@
             this.permComboBox = new System.Windows.Forms.ComboBox();
             this.submitButton = new System.Windows.Forms.Button();
             this.logListBox = new System.Windows.Forms.ListBox();
+            this.listTablesButton = new System.Windows.Forms.Button();
+            this.modifyTableButton = new System.Windows.Forms.Button();
+            this.listTablesListBox = new System.Windows.Forms.ListBox();
+            this.tableName = new System.Windows.Forms.TextBox();
+            this.tablePermComboBox = new System.Windows.Forms.ComboBox();
+            this.tableSubmit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // welcomeLabel
@@ -56,7 +62,7 @@
             // 
             // listUsersButton
             // 
-            this.listUsersButton.Location = new System.Drawing.Point(12, 54);
+            this.listUsersButton.Location = new System.Drawing.Point(12, 62);
             this.listUsersButton.Name = "listUsersButton";
             this.listUsersButton.Size = new System.Drawing.Size(75, 23);
             this.listUsersButton.TabIndex = 1;
@@ -66,7 +72,7 @@
             // 
             // addUserButton
             // 
-            this.addUserButton.Location = new System.Drawing.Point(12, 83);
+            this.addUserButton.Location = new System.Drawing.Point(12, 91);
             this.addUserButton.Name = "addUserButton";
             this.addUserButton.Size = new System.Drawing.Size(75, 23);
             this.addUserButton.TabIndex = 2;
@@ -76,7 +82,7 @@
             // 
             // modifyUserButton
             // 
-            this.modifyUserButton.Location = new System.Drawing.Point(12, 112);
+            this.modifyUserButton.Location = new System.Drawing.Point(12, 120);
             this.modifyUserButton.Name = "modifyUserButton";
             this.modifyUserButton.Size = new System.Drawing.Size(75, 23);
             this.modifyUserButton.TabIndex = 3;
@@ -86,7 +92,7 @@
             // 
             // deleteUserButton
             // 
-            this.deleteUserButton.Location = new System.Drawing.Point(12, 141);
+            this.deleteUserButton.Location = new System.Drawing.Point(12, 149);
             this.deleteUserButton.Name = "deleteUserButton";
             this.deleteUserButton.Size = new System.Drawing.Size(75, 23);
             this.deleteUserButton.TabIndex = 4;
@@ -96,7 +102,7 @@
             // 
             // viewLogButton
             // 
-            this.viewLogButton.Location = new System.Drawing.Point(12, 170);
+            this.viewLogButton.Location = new System.Drawing.Point(581, 121);
             this.viewLogButton.Name = "viewLogButton";
             this.viewLogButton.Size = new System.Drawing.Size(75, 23);
             this.viewLogButton.TabIndex = 5;
@@ -106,7 +112,7 @@
             // 
             // logoutButton
             // 
-            this.logoutButton.Location = new System.Drawing.Point(12, 199);
+            this.logoutButton.Location = new System.Drawing.Point(581, 150);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Size = new System.Drawing.Size(75, 23);
             this.logoutButton.TabIndex = 6;
@@ -117,7 +123,7 @@
             // listUsersListBox
             // 
             this.listUsersListBox.FormattingEnabled = true;
-            this.listUsersListBox.Location = new System.Drawing.Point(103, 62);
+            this.listUsersListBox.Location = new System.Drawing.Point(93, 62);
             this.listUsersListBox.Name = "listUsersListBox";
             this.listUsersListBox.Size = new System.Drawing.Size(376, 160);
             this.listUsersListBox.TabIndex = 7;
@@ -126,7 +132,7 @@
             // 
             // fnameTextBox
             // 
-            this.fnameTextBox.Location = new System.Drawing.Point(507, 11);
+            this.fnameTextBox.Location = new System.Drawing.Point(475, 65);
             this.fnameTextBox.Name = "fnameTextBox";
             this.fnameTextBox.Size = new System.Drawing.Size(100, 20);
             this.fnameTextBox.TabIndex = 8;
@@ -134,7 +140,7 @@
             // 
             // lnameTextBox
             // 
-            this.lnameTextBox.Location = new System.Drawing.Point(507, 38);
+            this.lnameTextBox.Location = new System.Drawing.Point(475, 92);
             this.lnameTextBox.Name = "lnameTextBox";
             this.lnameTextBox.Size = new System.Drawing.Size(100, 20);
             this.lnameTextBox.TabIndex = 9;
@@ -142,7 +148,7 @@
             // 
             // uidTextBox
             // 
-            this.uidTextBox.Location = new System.Drawing.Point(507, 65);
+            this.uidTextBox.Location = new System.Drawing.Point(475, 119);
             this.uidTextBox.Name = "uidTextBox";
             this.uidTextBox.Size = new System.Drawing.Size(100, 20);
             this.uidTextBox.TabIndex = 10;
@@ -150,7 +156,7 @@
             // 
             // pwdTextBox
             // 
-            this.pwdTextBox.Location = new System.Drawing.Point(507, 92);
+            this.pwdTextBox.Location = new System.Drawing.Point(475, 146);
             this.pwdTextBox.Name = "pwdTextBox";
             this.pwdTextBox.Size = new System.Drawing.Size(100, 20);
             this.pwdTextBox.TabIndex = 11;
@@ -159,7 +165,7 @@
             // permComboBox
             // 
             this.permComboBox.FormattingEnabled = true;
-            this.permComboBox.Location = new System.Drawing.Point(507, 118);
+            this.permComboBox.Location = new System.Drawing.Point(475, 172);
             this.permComboBox.Name = "permComboBox";
             this.permComboBox.Size = new System.Drawing.Size(100, 21);
             this.permComboBox.TabIndex = 12;
@@ -167,7 +173,7 @@
             // 
             // submitButton
             // 
-            this.submitButton.Location = new System.Drawing.Point(507, 145);
+            this.submitButton.Location = new System.Drawing.Point(475, 199);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(75, 23);
             this.submitButton.TabIndex = 13;
@@ -181,14 +187,70 @@
             this.logListBox.FormattingEnabled = true;
             this.logListBox.Location = new System.Drawing.Point(12, 233);
             this.logListBox.Name = "logListBox";
-            this.logListBox.Size = new System.Drawing.Size(998, 277);
+            this.logListBox.Size = new System.Drawing.Size(927, 277);
             this.logListBox.TabIndex = 14;
+            // 
+            // listTablesButton
+            // 
+            this.listTablesButton.Location = new System.Drawing.Point(581, 62);
+            this.listTablesButton.Name = "listTablesButton";
+            this.listTablesButton.Size = new System.Drawing.Size(75, 23);
+            this.listTablesButton.TabIndex = 15;
+            this.listTablesButton.Text = "List Tables";
+            this.listTablesButton.UseVisualStyleBackColor = true;
+            // 
+            // modifyTableButton
+            // 
+            this.modifyTableButton.Location = new System.Drawing.Point(581, 92);
+            this.modifyTableButton.Name = "modifyTableButton";
+            this.modifyTableButton.Size = new System.Drawing.Size(75, 23);
+            this.modifyTableButton.TabIndex = 16;
+            this.modifyTableButton.Text = "Modify Table";
+            this.modifyTableButton.UseVisualStyleBackColor = true;
+            // 
+            // listTablesListBox
+            // 
+            this.listTablesListBox.FormattingEnabled = true;
+            this.listTablesListBox.Location = new System.Drawing.Point(662, 62);
+            this.listTablesListBox.Name = "listTablesListBox";
+            this.listTablesListBox.Size = new System.Drawing.Size(171, 160);
+            this.listTablesListBox.TabIndex = 17;
+            // 
+            // tableName
+            // 
+            this.tableName.Location = new System.Drawing.Point(839, 62);
+            this.tableName.Name = "tableName";
+            this.tableName.Size = new System.Drawing.Size(100, 20);
+            this.tableName.TabIndex = 18;
+            // 
+            // tablePermComboBox
+            // 
+            this.tablePermComboBox.FormattingEnabled = true;
+            this.tablePermComboBox.Location = new System.Drawing.Point(840, 88);
+            this.tablePermComboBox.Name = "tablePermComboBox";
+            this.tablePermComboBox.Size = new System.Drawing.Size(99, 21);
+            this.tablePermComboBox.TabIndex = 20;
+            // 
+            // tableSubmit
+            // 
+            this.tableSubmit.Location = new System.Drawing.Point(840, 199);
+            this.tableSubmit.Name = "tableSubmit";
+            this.tableSubmit.Size = new System.Drawing.Size(75, 23);
+            this.tableSubmit.TabIndex = 21;
+            this.tableSubmit.Text = "Submit";
+            this.tableSubmit.UseVisualStyleBackColor = true;
             // 
             // soForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1045, 522);
+            this.ClientSize = new System.Drawing.Size(951, 522);
+            this.Controls.Add(this.tableSubmit);
+            this.Controls.Add(this.tablePermComboBox);
+            this.Controls.Add(this.tableName);
+            this.Controls.Add(this.listTablesListBox);
+            this.Controls.Add(this.modifyTableButton);
+            this.Controls.Add(this.listTablesButton);
             this.Controls.Add(this.logListBox);
             this.Controls.Add(this.submitButton);
             this.Controls.Add(this.permComboBox);
@@ -228,5 +290,11 @@
         private System.Windows.Forms.ComboBox permComboBox;
         private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.ListBox logListBox;
+        private System.Windows.Forms.Button listTablesButton;
+        private System.Windows.Forms.Button modifyTableButton;
+        private System.Windows.Forms.ListBox listTablesListBox;
+        private System.Windows.Forms.TextBox tableName;
+        private System.Windows.Forms.ComboBox tablePermComboBox;
+        private System.Windows.Forms.Button tableSubmit;
     }
 }
