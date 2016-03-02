@@ -45,3 +45,8 @@ NOTICE	|	10:06:21 PM	|	amo282 has successfully logged in with SO privileges.
 NOTICE	|	10:06:23 PM	|	AR_MAC_DB.User has viewed the list of users
 NOTICE	|	10:08:54 PM	|	amo282 has successfully logged in with SO privileges.
 NOTICE	|	10:08:56 PM	|	AR_MAC_DB.User has viewed the list of users
+NOTICE	|	10:47:31 PM	|	amo282 has successfully logged in with SO privileges.
+NOTICE	|	10:47:35 PM	|	AR_MAC_DB.User has successfully logged out
+NOTICE	|	10:48:29 PM	|	mrk123 has successfully logged in with G privileges.
+NOTICE	|	10:48:46 PM	|	AR_MAC_DB.User has successfully queried : SELECT * from table1
+NOTICE	|	10:49:02 PM	|	AR_MAC_DB.User has successfully queried : INSERT into table1 (c1,c2,c3) 

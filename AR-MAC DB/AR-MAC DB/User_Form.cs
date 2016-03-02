@@ -14,6 +14,7 @@ namespace AR_MAC_DB
     public partial class userForm : Form
     {
         User user = new User();
+        Logger log = new Logger();
 
         public userForm(User user)
         {
@@ -32,8 +33,12 @@ namespace AR_MAC_DB
                 int from = query.IndexOf("from");
                 int where = query.IndexOf("where");
 
+                string tables;
 
-                string tables = query.Substring(from + 4, where - from - 4);
+                if (where != -1)
+                    tables = query.Substring(from + 4, where - from - 4);
+                else
+                    tables = query.Substring(from + 4, query.Length - from - 4);
 
 
                 char[] delimiters = new char[] { ',' };
@@ -191,17 +196,17 @@ namespace AR_MAC_DB
                     if (queryCheckSelect(query, user.uid) || queryCheckInsert(query, user.uid))
                     {
                         consoleListBox.Items.Insert(0, "Query successful!");
-                        //log entry NOTICE
+                        log.append(this.user + " has successfully queried : " + query, "NOTICE");
                     } else
                     {
                         consoleListBox.Items.Insert(0, "Access violation attempted. This incident will be reported.");
-                        //log entry VIOLATION
+                        log.append(this.user + " has unsuccessfully queried-Access violation : " + query, "VIOLATION");
                     }
                 }
                 else
                 {
                     consoleListBox.Items.Insert(0, "Syntax error.");
-                    //log entry ERROR
+                    log.append(this.user + " has unsuccessfully queried - Error in the query : " + query, "ERROR");
                 }
                 commandTextBox.Text = String.Empty;
             }
