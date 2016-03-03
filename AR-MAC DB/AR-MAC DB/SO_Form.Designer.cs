@@ -55,9 +55,10 @@
             // welcomeLabel
             // 
             this.welcomeLabel.AutoSize = true;
-            this.welcomeLabel.Location = new System.Drawing.Point(12, 9);
+            this.welcomeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.welcomeLabel.Location = new System.Drawing.Point(8, 9);
             this.welcomeLabel.Name = "welcomeLabel";
-            this.welcomeLabel.Size = new System.Drawing.Size(55, 13);
+            this.welcomeLabel.Size = new System.Drawing.Size(96, 24);
             this.welcomeLabel.TabIndex = 0;
             this.welcomeLabel.Text = "Welcome!";
             // 
@@ -66,7 +67,7 @@
             this.listUsersButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listUsersButton.Location = new System.Drawing.Point(12, 62);
             this.listUsersButton.Name = "listUsersButton";
-            this.listUsersButton.Size = new System.Drawing.Size(100, 23);
+            this.listUsersButton.Size = new System.Drawing.Size(100, 25);
             this.listUsersButton.TabIndex = 1;
             this.listUsersButton.Text = "List Users";
             this.listUsersButton.UseVisualStyleBackColor = true;
@@ -75,9 +76,9 @@
             // addUserButton
             // 
             this.addUserButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addUserButton.Location = new System.Drawing.Point(12, 91);
+            this.addUserButton.Location = new System.Drawing.Point(12, 93);
             this.addUserButton.Name = "addUserButton";
-            this.addUserButton.Size = new System.Drawing.Size(100, 23);
+            this.addUserButton.Size = new System.Drawing.Size(100, 25);
             this.addUserButton.TabIndex = 2;
             this.addUserButton.Text = "Add User";
             this.addUserButton.UseVisualStyleBackColor = true;
@@ -86,9 +87,9 @@
             // modifyUserButton
             // 
             this.modifyUserButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.modifyUserButton.Location = new System.Drawing.Point(12, 120);
+            this.modifyUserButton.Location = new System.Drawing.Point(12, 124);
             this.modifyUserButton.Name = "modifyUserButton";
-            this.modifyUserButton.Size = new System.Drawing.Size(100, 23);
+            this.modifyUserButton.Size = new System.Drawing.Size(100, 25);
             this.modifyUserButton.TabIndex = 3;
             this.modifyUserButton.Text = "Modify User";
             this.modifyUserButton.UseVisualStyleBackColor = true;
@@ -97,9 +98,9 @@
             // deleteUserButton
             // 
             this.deleteUserButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteUserButton.Location = new System.Drawing.Point(12, 149);
+            this.deleteUserButton.Location = new System.Drawing.Point(12, 155);
             this.deleteUserButton.Name = "deleteUserButton";
-            this.deleteUserButton.Size = new System.Drawing.Size(100, 23);
+            this.deleteUserButton.Size = new System.Drawing.Size(100, 25);
             this.deleteUserButton.TabIndex = 4;
             this.deleteUserButton.Text = "Delete User";
             this.deleteUserButton.UseVisualStyleBackColor = true;
@@ -108,9 +109,9 @@
             // viewLogButton
             // 
             this.viewLogButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewLogButton.Location = new System.Drawing.Point(606, 121);
+            this.viewLogButton.Location = new System.Drawing.Point(606, 124);
             this.viewLogButton.Name = "viewLogButton";
-            this.viewLogButton.Size = new System.Drawing.Size(100, 23);
+            this.viewLogButton.Size = new System.Drawing.Size(100, 25);
             this.viewLogButton.TabIndex = 5;
             this.viewLogButton.Text = "View Log";
             this.viewLogButton.UseVisualStyleBackColor = true;
@@ -119,9 +120,9 @@
             // logoutButton
             // 
             this.logoutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logoutButton.Location = new System.Drawing.Point(607, 150);
+            this.logoutButton.Location = new System.Drawing.Point(606, 155);
             this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(99, 23);
+            this.logoutButton.Size = new System.Drawing.Size(100, 25);
             this.logoutButton.TabIndex = 6;
             this.logoutButton.Text = "Log Out";
             this.logoutButton.UseVisualStyleBackColor = true;
@@ -194,7 +195,7 @@
             this.listTablesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listTablesButton.Location = new System.Drawing.Point(606, 62);
             this.listTablesButton.Name = "listTablesButton";
-            this.listTablesButton.Size = new System.Drawing.Size(100, 23);
+            this.listTablesButton.Size = new System.Drawing.Size(100, 25);
             this.listTablesButton.TabIndex = 15;
             this.listTablesButton.Text = "List Tables";
             this.listTablesButton.UseVisualStyleBackColor = true;
@@ -203,9 +204,9 @@
             // modifyTableButton
             // 
             this.modifyTableButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.modifyTableButton.Location = new System.Drawing.Point(606, 92);
+            this.modifyTableButton.Location = new System.Drawing.Point(606, 93);
             this.modifyTableButton.Name = "modifyTableButton";
-            this.modifyTableButton.Size = new System.Drawing.Size(100, 23);
+            this.modifyTableButton.Size = new System.Drawing.Size(100, 25);
             this.modifyTableButton.TabIndex = 16;
             this.modifyTableButton.Text = "Modify Table";
             this.modifyTableButton.UseVisualStyleBackColor = true;
@@ -283,6 +284,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1001, 522);
             this.Controls.Add(this.violationCheckBox);
             this.Controls.Add(this.errorCheckBox);
