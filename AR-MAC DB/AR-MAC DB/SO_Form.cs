@@ -296,6 +296,7 @@ namespace AR_MAC_DB
                 logListBox.Items.Add(line);
                 line = log.readNext(line);
             }
+            log.append(this.user.uid + " has viewed the log ", "NOTICE");
         }
 
         private void listUsersListBox_Click(object sender, EventArgs e)
@@ -316,17 +317,22 @@ namespace AR_MAC_DB
 
         private void modifyUserButton_Click(object sender, EventArgs e)
         {
-            modifyUser(uidTextBox.Text, permComboBox.Text);
+            bool successful = modifyUser(uidTextBox.Text, permComboBox.Text);
+            if(successful)
+                log.append(this.user.uid + " has modified the access level of user : " + uidTextBox.Text + " to : "+ permComboBox.Text, "NOTICE");
         }
 
         private void listTablesButton_Click(object sender, EventArgs e)
         {
             listTables();
+            log.append(this.user.uid + " has viewed the list of tables", "NOTICE");
         }
 
         private void modifyTableButton_Click(object sender, EventArgs e)
         {
-            modifyTable(tableNameTextBox.Text, tablePermComboBox.Text);
+            bool successful = modifyTable(tableNameTextBox.Text, tablePermComboBox.Text);
+            if (successful)
+                log.append(this.user.uid + " has modified the access level of table : " + tableNameTextBox.Text + " to : " + tablePermComboBox.Text, "NOTICE");
         }
 
         private void listTablesListBox_Click(object sender, EventArgs e)
