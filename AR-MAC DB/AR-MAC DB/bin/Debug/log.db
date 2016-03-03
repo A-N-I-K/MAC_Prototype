@@ -54,4 +54,63 @@ NOTICE	|	11:07:32 PM	|	amo282 has successfully logged in with SO privileges.
 NOTICE	|	11:20:28 PM	|	amo282 has successfully logged in with SO privileges.
 NOTICE	|	11:21:05 PM	|	amo282 has successfully logged in with SO privileges.
 NOTICE	|	11:22:17 PM	|	amo282 has successfully logged in with SO privileges.
+<<<<<<< HEAD
 NOTICE	|	11:37:57 PM	|	amo282 has successfully logged in with SO privileges.
+=======
+NOTICE	|	11:43:32 PM	|	abc123 has successfully logged in with SO privileges.
+NOTICE	|	11:43:43 PM	|	AR_MAC_DB.User has successfully logged out
+NOTICE	|	11:44:40 PM	|	mrk123 has successfully logged in with G privileges.
+VIOLATION	|	11:44:54 PM	|	AR_MAC_DB.User has unsuccessfully queried-Access violation : SELECT * from table8
+NOTICE	|	11:45:28 PM	|	abc123 has successfully logged in with SO privileges.
+NOTICE	|	11:46:03 PM	|	AR_MAC_DB.User has successfully logged out
+NOTICE	|	11:48:48 PM	|	abc123 has successfully logged in with SO privileges.
+NOTICE	|	11:48:57 PM	|	AR_MAC_DB.User has successfully logged out
+NOTICE	|	11:49:29 PM	|	abc123 has successfully logged in with SO privileges.
+NOTICE	|	11:49:59 PM	|	AR_MAC_DB.User has viewed the list of users
+NOTICE	|	11:50:04 PM	|	AR_MAC_DB.User has successfully logged out
+NOTICE	|	12:09:59 AM	|	abc123 has successfully logged in with SO privileges.
+NOTICE	|	12:10:00 AM	|	AR_MAC_DB.User has successfully logged out
+NOTICE	|	12:11:19 AM	|	abc123 has successfully logged in with SO privileges.
+NOTICE	|	12:11:21 AM	|	AR_MAC_DB.User has successfully logged out
+NOTICE	|	12:12:38 AM	|	abc123 has successfully logged in with SO privileges.
+NOTICE	|	12:12:45 AM	|	AR_MAC_DB.User has successfully logged out
+NOTICE	|	12:14:45 AM	|	abc123 has successfully logged in with SO privileges.
+NOTICE	|	12:14:49 AM	|	abc123 has successfully logged out
+NOTICE	|	08:46:24 PM	|	abc123 has successfully logged in with SO privileges.
+NOTICE	|	08:46:30 PM	|	abc123 has viewed the list of users
+NOTICE	|	08:47:18 PM	|	abc123 has added new user : teddy123
+NOTICE	|	08:47:51 PM	|	abc123 has added new user : mark123
+NOTICE	|	08:52:12 PM	|	abc123 has successfully logged in with SO privileges.
+NOTICE	|	08:53:06 PM	|	abc123 has viewed the list of users
+NOTICE	|	08:53:21 PM	|	abc123 has successfully logged out
+NOTICE	|	09:05:16 PM	|	abc123 has successfully logged in with SO privileges.
+NOTICE	|	09:05:21 PM	|	abc123 has viewed the list of tables
+NOTICE	|	09:05:25 PM	|	abc123 has viewed the log 
+NOTICE	|	09:05:36 PM	|	abc123 has viewed the log 
+NOTICE	|	09:05:47 PM	|	abc123 has viewed the log 
+NOTICE	|	09:06:14 PM	|	abc123 has modified the access level of table : table4to : F
+NOTICE	|	09:06:16 PM	|	abc123 has viewed the log 
+NOTICE	|	09:06:39 PM	|	abc123 has modified the access level of table : table4to : E
+NOTICE	|	09:06:47 PM	|	abc123 has viewed the list of users
+NOTICE	|	09:07:06 PM	|	abc123 has modified the access level of user : mark123to : FE
+NOTICE	|	09:07:08 PM	|	abc123 has viewed the log 
+NOTICE	|	09:07:28 PM	|	abc123 has modified the access level of user : mark123to : FE
+NOTICE	|	09:07:30 PM	|	abc123 has viewed the log 
+NOTICE	|	09:08:08 PM	|	abc123 has modified the access level of user : mark123to : HE
+NOTICE	|	09:08:09 PM	|	abc123 has viewed the log 
+NOTICE	|	09:08:56 PM	|	abc123 has viewed the list of users
+NOTICE	|	09:09:01 PM	|	abc123 has viewed the log 
+NOTICE	|	09:09:09 PM	|	abc123 has added new user : don123
+NOTICE	|	09:09:16 PM	|	abc123 has viewed the log 
+NOTICE	|	09:09:57 PM	|	abc123 has successfully logged out
+NOTICE	|	09:11:18 PM	|	abc123 has successfully logged in with SO privileges.
+NOTICE	|	09:11:21 PM	|	abc123 has viewed the list of users
+NOTICE	|	09:11:47 PM	|	abc123 has modified the access level of user : abc123 to : SO
+NOTICE	|	09:11:54 PM	|	abc123 has modified the access level of user : abc123 to : G
+NOTICE	|	09:11:58 PM	|	abc123 has modified the access level of user : abc123 to : SO
+NOTICE	|	09:12:25 PM	|	abc123 has added new user : abc123
+NOTICE	|	09:12:31 PM	|	abc123 has deleted the user : 
+NOTICE	|	09:12:38 PM	|	abc123 has added new user : abc123
+NOTICE	|	09:18:14 PM	|	abc123 has successfully logged out
+NOTICE	|	09:18:29 PM	|	don123 has successfully logged in with F privileges.
+>>>>>>> origin/master
