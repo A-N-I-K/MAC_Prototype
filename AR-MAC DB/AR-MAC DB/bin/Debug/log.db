@@ -8,10 +8,8 @@ NOTICE	|	08:33:13 PM	|	amo282 has successfully logged in with SO privileges.
 NOTICE	|	08:33:46 PM	|	amo282 has successfully logged in with SO privileges.
 NOTICE	|	08:35:26 PM	|	amo282 has successfully logged in with SO privileges.
 NOTICE	|	08:38:49 PM	|	amo282 has successfully logged in with SO privileges.
-<<<<<<< HEAD
 NOTICE	|	08:53:19 PM	|	amo282 has successfully logged in with SO privileges.
 NOTICE	|	08:55:08 PM	|	amo282 has successfully logged in with SO privileges.
-=======
 NOTICE	|	08:52:21 PM	|	abc123 has successfully logged in with SO privileges.
 NOTICE	|	08:52:24 PM	|	AR_MAC_DB.User has successfully logged out
 NOTICE	|	08:52:33 PM	|	abc123 has successfully logged in with SO privileges.
@@ -36,7 +34,6 @@ NOTICE	|	09:43:35 PM	|	AR_MAC_DB.User has successfully logged out
 NOTICE	|	09:43:42 PM	|	amo282 has successfully logged in with SO privileges.
 NOTICE	|	09:44:46 PM	|	abc123 has successfully logged in with SO privileges.
 NOTICE	|	09:44:52 PM	|	AR_MAC_DB.User has successfully logged out
->>>>>>> origin/master
 NOTICE	|	09:57:14 PM	|	amo282 has successfully logged in with SO privileges.
 NOTICE	|	09:59:51 PM	|	amo282 has successfully logged in with SO privileges.
 NOTICE	|	09:59:53 PM	|	AR_MAC_DB.User has viewed the list of users
@@ -54,9 +51,7 @@ NOTICE	|	11:07:32 PM	|	amo282 has successfully logged in with SO privileges.
 NOTICE	|	11:20:28 PM	|	amo282 has successfully logged in with SO privileges.
 NOTICE	|	11:21:05 PM	|	amo282 has successfully logged in with SO privileges.
 NOTICE	|	11:22:17 PM	|	amo282 has successfully logged in with SO privileges.
-<<<<<<< HEAD
 NOTICE	|	11:37:57 PM	|	amo282 has successfully logged in with SO privileges.
-=======
 NOTICE	|	11:43:32 PM	|	abc123 has successfully logged in with SO privileges.
 NOTICE	|	11:43:43 PM	|	AR_MAC_DB.User has successfully logged out
 NOTICE	|	11:44:40 PM	|	mrk123 has successfully logged in with G privileges.
@@ -113,7 +108,6 @@ NOTICE	|	09:12:31 PM	|	abc123 has deleted the user :
 NOTICE	|	09:12:38 PM	|	abc123 has added new user : abc123
 NOTICE	|	09:18:14 PM	|	abc123 has successfully logged out
 NOTICE	|	09:18:29 PM	|	don123 has successfully logged in with F privileges.
->>>>>>> origin/master
 NOTICE	|	06:31:28 AM	|	amo282 has successfully logged in with SO privileges.
 ERROR	|	06:31:35 AM	|	amo282 attempted to add a user with incomplete information.
 NOTICE	|	06:31:36 AM	|	amo282 has viewed the list of users
