@@ -114,3 +114,18 @@ NOTICE	|	09:12:38 PM	|	abc123 has added new user : abc123
 NOTICE	|	09:18:14 PM	|	abc123 has successfully logged out
 NOTICE	|	09:18:29 PM	|	don123 has successfully logged in with F privileges.
 >>>>>>> origin/master
+NOTICE	|	06:31:28 AM	|	amo282 has successfully logged in with SO privileges.
+ERROR	|	06:31:35 AM	|	amo282 attempted to add a user with incomplete information.
+NOTICE	|	06:31:36 AM	|	amo282 has viewed the list of users
+ERROR	|	06:31:43 AM	|	amo282 attempted to add a user with incomplete information.
+ERROR	|	06:31:50 AM	|	amo282 attempted to add a duplicate user : abc123
+NOTICE	|	06:32:02 AM	|	amo282 has added new user : abc124
+NOTICE	|	06:48:57 AM	|	amo282 has successfully logged in with SO privileges.
+NOTICE	|	06:48:58 AM	|	amo282 has viewed the list of tables
+NOTICE	|	06:49:02 AM	|	amo282 has modified the access level of table : table2 to : H
+NOTICE	|	06:49:05 AM	|	amo282 has modified the access level of table : table2 to : H
+NOTICE	|	06:49:07 AM	|	amo282 has modified the access level of table : table3 to : F
+NOTICE	|	06:50:02 AM	|	amo282 has successfully logged in with SO privileges.
+NOTICE	|	06:50:03 AM	|	amo282 has viewed the list of tables
+ERROR	|	06:50:17 AM	|	amo282 attempted to modify a table with incomplete information.
+ERROR	|	06:50:20 AM	|	amo282 attempted to modify a table with incomplete information.

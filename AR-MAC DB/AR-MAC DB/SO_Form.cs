@@ -145,7 +145,6 @@ namespace AR_MAC_DB
         {
             bool found = false;
             try{
-
                 StreamWriter tempFile = new StreamWriter("temp.db", true);
                 StreamReader file = new StreamReader("user.db");
                 char[] delimiters = new char[] { '\t' };
@@ -167,9 +166,7 @@ namespace AR_MAC_DB
                         }
 
                     }
-
                 }
-
                 tempFile.Close();
                 file.Close();
             }
@@ -269,21 +266,29 @@ namespace AR_MAC_DB
 
         private void addUserButton_Click(object sender, EventArgs e)
         {
-            User user = new User();
-            user.fname = fnameTextBox.Text;
-            user.lname = lnameTextBox.Text;
-            user.uid = uidTextBox.Text;
-            user.pwd = pwdTextBox.Text;
-            user.perm = permComboBox.Text;
-            user.valid = true;
-            if (addUser(user))
+            if (fnameTextBox.Text!="" && lnameTextBox.Text !="" && uidTextBox.Text !="" && pwdTextBox.Text != "" && permComboBox.Text != "")
             {
-                log.append(this.user.uid + " has added new user : " + user.uid, "NOTICE");
+                User user = new User();
+                user.fname = fnameTextBox.Text;
+                user.lname = lnameTextBox.Text;
+                user.uid = uidTextBox.Text;
+                user.pwd = pwdTextBox.Text;
+                user.perm = permComboBox.Text;
+                user.valid = true;
+                if (addUser(user))
+                {
+                    log.append(this.user.uid + " has added new user : " + uidTextBox.Text, "NOTICE");
+                }
+                else
+                {
+                    MessageBox.Show("The user " + uidTextBox.Text + "already exists!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    log.append(this.user.uid + " attempted to add a duplicate user : " + uidTextBox.Text, "ERROR");
+                }
             }
             else
             {
-                MessageBox.Show("The user " + user.uid + "already exists!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                log.append(this.user.uid + " attempted to add a duplicate user : " + user.uid, "ERROR");
+                MessageBox.Show("Please provide all the information!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                log.append(this.user.uid + " attempted to add a user with incomplete information.", "ERROR");
             }
         }
 
@@ -294,11 +299,28 @@ namespace AR_MAC_DB
 
         private void deleteUserButton_Click(object sender, EventArgs e)
         {
-            string[] tokens;
-            tokens = listUsersListBox.Text.Split('\t');
-            bool successful = deleteUser(tokens[2]);
-            if(successful)
-                log.append(this.user.uid + " has deleted the user : " + listUsersListBox.Text, "NOTICE");
+            if (fnameTextBox.Text != "" && lnameTextBox.Text != "" && uidTextBox.Text != "" && pwdTextBox.Text != "" && permComboBox.Text != "")
+            {
+                string[] tokens;
+                tokens = listUsersListBox.Text.Split('\t');
+                bool successful = deleteUser(tokens[2]);
+                if (successful)
+                {
+                    log.append(this.user.uid + " has deleted the user : " + uidTextBox.Text, "NOTICE");
+                }
+                else
+                {
+                    MessageBox.Show("The user " + user.uid + "does not exist!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    log.append(this.user.uid + " has attempted to delete an invalid user : " + uidTextBox.Text, "ERROR");
+                }
+                    
+            }
+            else
+            {
+                MessageBox.Show("Please provide all the information!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                log.append(this.user.uid + " attempted to delete a user with incomplete information.", "ERROR");
+            }
+
         }
 
         private void viewLogButton_Click(object sender, EventArgs e)
@@ -318,11 +340,6 @@ namespace AR_MAC_DB
         {
             string[] tokens;
             tokens = listUsersListBox.Text.Split('\t');
-            fnameTextBox.Visible = true;
-            lnameTextBox.Visible = true;
-            uidTextBox.Visible = true;
-            pwdTextBox.Visible = true;
-            permComboBox.Visible = true;
             fnameTextBox.Text = tokens[0];
             lnameTextBox.Text = tokens[1];
             uidTextBox.Text = tokens[2];
@@ -332,9 +349,24 @@ namespace AR_MAC_DB
 
         private void modifyUserButton_Click(object sender, EventArgs e)
         {
-            bool successful = modifyUser(uidTextBox.Text, permComboBox.Text);
-            if(successful)
-                log.append(this.user.uid + " has modified the access level of user : " + uidTextBox.Text + " to : "+ permComboBox.Text, "NOTICE");
+            if (fnameTextBox.Text != "" && lnameTextBox.Text != "" && uidTextBox.Text != "" && pwdTextBox.Text != "" && permComboBox.Text != "")
+            {
+                bool successful = modifyUser(uidTextBox.Text, permComboBox.Text);
+                if (successful)
+                {
+                    log.append(this.user.uid + " has modified the access level of user : " + uidTextBox.Text + " to : " + permComboBox.Text, "NOTICE");
+                }
+                else
+                {
+                    MessageBox.Show("The user " + user.uid + "does not exist!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    log.append(this.user.uid + " has attempted to modify an invalid user : " + uidTextBox.Text, "ERROR");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please provide all the information!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                log.append(this.user.uid + " attempted to modify a user with incomplete information.", "ERROR");
+            }
         }
 
         private void listTablesButton_Click(object sender, EventArgs e)
@@ -345,9 +377,24 @@ namespace AR_MAC_DB
 
         private void modifyTableButton_Click(object sender, EventArgs e)
         {
-            bool successful = modifyTable(tableNameTextBox.Text, tablePermComboBox.Text);
-            if (successful)
-                log.append(this.user.uid + " has modified the access level of table : " + tableNameTextBox.Text + " to : " + tablePermComboBox.Text, "NOTICE");
+            if (tableNameTextBox.Text != "" && tablePermComboBox.Text != "")
+            {
+                bool successful = modifyTable(tableNameTextBox.Text, tablePermComboBox.Text);
+                if (successful)
+                {
+                    log.append(this.user.uid + " has modified the access level of table : " + tableNameTextBox.Text + " to : " + tablePermComboBox.Text, "NOTICE");
+                }
+                else
+                {
+                    MessageBox.Show("The table " + tableNameTextBox.Text + "does not exist!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    log.append(this.user.uid + " attempted to modify a table with incomplete information.", "ERROR");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please provide all the information!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                log.append(this.user.uid + " attempted to modify a table with incomplete information.", "ERROR");
+            }
         }
 
         private void listTablesListBox_Click(object sender, EventArgs e)
