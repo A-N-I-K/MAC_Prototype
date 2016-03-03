@@ -190,17 +190,25 @@ namespace AR_MAC_DB
                     loginForm form = new loginForm();
                     form.Show();
                 }
-                string type = queryType(query);
-                if (type.Equals("select") || type.Equals("insert"))
-                {
-                    if (queryCheckSelect(query, user.uid) || queryCheckInsert(query, user.uid))
+                if ((query.ToLower().Contains("insert") || query.ToLower().Contains("select")) && query.Length >= 13){
+                    string type = queryType(query);
+                    if (type.Equals("select") || type.Equals("insert"))
                     {
-                        consoleListBox.Items.Insert(0, "Query successful!");
-                        log.append(this.user + " has successfully queried : " + query, "NOTICE");
-                    } else
+                        if (queryCheckSelect(query, user.uid) || queryCheckInsert(query, user.uid))
+                        {
+                            consoleListBox.Items.Insert(0, "Query successful!");
+                            log.append(this.user + " has successfully queried : " + query, "NOTICE");
+                        }
+                        else
+                        {
+                            consoleListBox.Items.Insert(0, "Access violation attempted. This incident will be reported.");
+                            log.append(this.user + " has unsuccessfully queried-Access violation : " + query, "VIOLATION");
+                        }
+                    }
+                    else
                     {
-                        consoleListBox.Items.Insert(0, "Access violation attempted. This incident will be reported.");
-                        log.append(this.user + " has unsuccessfully queried-Access violation : " + query, "VIOLATION");
+                        consoleListBox.Items.Insert(0, "Syntax error.");
+                        log.append(this.user + " has unsuccessfully queried - Error in the query : " + query, "ERROR");
                     }
                 }
                 else

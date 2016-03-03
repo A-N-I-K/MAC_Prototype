@@ -79,7 +79,8 @@ namespace AR_MAC_DB
             }
             else
             {
-
+                MessageBox.Show("Invalid username or password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                log.append("An invalid login attempt was made.", "ERROR");
             }
         }
     }
