@@ -58,21 +58,42 @@ namespace AR_MAC_DB
             }
         }
 
-        public void addUser(User uobject)
+        public bool addUser(User uobject)
         {
-            try
+            StreamReader fileR = new StreamReader("user.db");
+            char[] delimiters = new char[] { '\t' };
+            bool unique = true;
+            string lineR;
+            while ((lineR = fileR.ReadLine()) != null)
             {
-                StreamWriter file = new StreamWriter("user.db", true);
-                string line = uobject.fname + "\t" + uobject.lname + "\t" + uobject.uid + "\t" + uobject.pwd + "\t" + uobject.perm;
-                file.WriteLine(line);
-                file.Close();
+                string[] parts = lineR.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+                for (int i = 0; i < parts.Length; i += 5)
+                {
+                    if (parts[i + 2] == uobject.uid)
+                    {
+                        unique = false;
+                    }
+                }
 
             }
-            catch (FileNotFoundException e)
+            fileR.Close();
+            if (unique)
             {
-                Console.WriteLine("File Not Found!!");
+                try
+                {
+                    StreamWriter fileW = new StreamWriter("user.db", true);
+                    string lineW = uobject.fname + "\t" + uobject.lname + "\t" + uobject.uid + "\t" + uobject.pwd + "\t" + uobject.perm;
+                    fileW.WriteLine(lineW);
+                    fileW.Close();
+
+                }
+                catch (FileNotFoundException e)
+                {
+                    Console.WriteLine("File Not Found!!");
+                }
             }
             listUsers();
+            return unique;
         }
 
         public bool deleteUser(string uid)
@@ -248,16 +269,6 @@ namespace AR_MAC_DB
 
         private void addUserButton_Click(object sender, EventArgs e)
         {
-            fnameTextBox.Visible = true;
-            lnameTextBox.Visible = true;
-            uidTextBox.Visible = true;
-            pwdTextBox.Visible = true;
-            permComboBox.Visible = true;
-            submitButton.Visible = true;
-        }
-
-        private void submitButton_Click(object sender, EventArgs e)
-        {
             User user = new User();
             user.fname = fnameTextBox.Text;
             user.lname = lnameTextBox.Text;
@@ -265,9 +276,20 @@ namespace AR_MAC_DB
             user.pwd = pwdTextBox.Text;
             user.perm = permComboBox.Text;
             user.valid = true;
-            addUser(user);
+            if (addUser(user))
+            {
+                log.append(this.user.uid + " has added new user : " + user.uid, "NOTICE");
+            }
+            else
+            {
+                MessageBox.Show("The user " + user.uid + "already exists!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                log.append(this.user.uid + " attempted to add a duplicate user : " + user.uid, "ERROR");
+            }
+        }
 
-            log.append(this.user.uid + " has added new user : " +user.uid, "NOTICE");
+        private void submitButton_Click(object sender, EventArgs e)
+        {
+            //log.append(this.user.uid + " has added new user : " +user.uid, "NOTICE");
         }
 
         private void deleteUserButton_Click(object sender, EventArgs e)

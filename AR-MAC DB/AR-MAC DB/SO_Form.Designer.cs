@@ -41,14 +41,12 @@
             this.uidTextBox = new System.Windows.Forms.TextBox();
             this.pwdTextBox = new System.Windows.Forms.TextBox();
             this.permComboBox = new System.Windows.Forms.ComboBox();
-            this.submitButton = new System.Windows.Forms.Button();
             this.logListBox = new System.Windows.Forms.ListBox();
             this.listTablesButton = new System.Windows.Forms.Button();
             this.modifyTableButton = new System.Windows.Forms.Button();
             this.listTablesListBox = new System.Windows.Forms.ListBox();
             this.tableNameTextBox = new System.Windows.Forms.TextBox();
             this.tablePermComboBox = new System.Windows.Forms.ComboBox();
-            this.tableSubmit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // welcomeLabel
@@ -165,17 +163,6 @@
             this.permComboBox.Size = new System.Drawing.Size(100, 21);
             this.permComboBox.TabIndex = 12;
             // 
-            // submitButton
-            // 
-            this.submitButton.Location = new System.Drawing.Point(12, 199);
-            this.submitButton.Name = "submitButton";
-            this.submitButton.Size = new System.Drawing.Size(100, 23);
-            this.submitButton.TabIndex = 13;
-            this.submitButton.Text = "Submit";
-            this.submitButton.UseVisualStyleBackColor = true;
-            this.submitButton.Visible = false;
-            this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
-            // 
             // logListBox
             // 
             this.logListBox.FormattingEnabled = true;
@@ -228,30 +215,17 @@
             this.tablePermComboBox.Size = new System.Drawing.Size(100, 21);
             this.tablePermComboBox.TabIndex = 20;
             // 
-            // tableSubmit
-            // 
-            this.tableSubmit.Location = new System.Drawing.Point(889, 199);
-            this.tableSubmit.Name = "tableSubmit";
-            this.tableSubmit.Size = new System.Drawing.Size(99, 23);
-            this.tableSubmit.TabIndex = 21;
-            this.tableSubmit.Text = "Submit";
-            this.tableSubmit.UseVisualStyleBackColor = true;
-            this.tableSubmit.Visible = false;
-            this.tableSubmit.Click += new System.EventHandler(this.tableSubmit_Click);
-            // 
             // soForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1001, 522);
-            this.Controls.Add(this.tableSubmit);
             this.Controls.Add(this.tablePermComboBox);
             this.Controls.Add(this.tableNameTextBox);
             this.Controls.Add(this.listTablesListBox);
             this.Controls.Add(this.modifyTableButton);
             this.Controls.Add(this.listTablesButton);
             this.Controls.Add(this.logListBox);
-            this.Controls.Add(this.submitButton);
             this.Controls.Add(this.permComboBox);
             this.Controls.Add(this.pwdTextBox);
             this.Controls.Add(this.uidTextBox);
@@ -287,13 +261,11 @@
         private System.Windows.Forms.TextBox uidTextBox;
         private System.Windows.Forms.TextBox pwdTextBox;
         private System.Windows.Forms.ComboBox permComboBox;
-        private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.ListBox logListBox;
         private System.Windows.Forms.Button listTablesButton;
         private System.Windows.Forms.Button modifyTableButton;
         private System.Windows.Forms.ListBox listTablesListBox;
         private System.Windows.Forms.TextBox tableNameTextBox;
         private System.Windows.Forms.ComboBox tablePermComboBox;
-        private System.Windows.Forms.Button tableSubmit;
     }
 }
