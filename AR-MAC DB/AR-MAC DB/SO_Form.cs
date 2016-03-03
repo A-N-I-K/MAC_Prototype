@@ -292,11 +292,6 @@ namespace AR_MAC_DB
             }
         }
 
-        private void submitButton_Click(object sender, EventArgs e)
-        {
-            //log.append(this.user.uid + " has added new user : " +user.uid, "NOTICE");
-        }
-
         private void deleteUserButton_Click(object sender, EventArgs e)
         {
             if (fnameTextBox.Text != "" && lnameTextBox.Text != "" && uidTextBox.Text != "" && pwdTextBox.Text != "" && permComboBox.Text != "")
@@ -325,12 +320,24 @@ namespace AR_MAC_DB
 
         private void viewLogButton_Click(object sender, EventArgs e)
         {
+            logListBox.Items.Clear();
             string line;
             line = "";
             line = log.readNext(line);            
             while (line!=null)
-            {                
-                logListBox.Items.Add(line);
+            {
+                if (noticeCheckBox.Checked == true && line.Substring(0, 1).Equals("N"))
+                {
+                    logListBox.Items.Add(line);
+                }
+                if (errorCheckBox.Checked == true && line.Substring(0, 1).Equals("E"))
+                {
+                    logListBox.Items.Add(line);
+                }
+                if (violationCheckBox.Checked == true && line.Substring(0, 1).Equals("V"))
+                {
+                    logListBox.Items.Add(line);
+                }
                 line = log.readNext(line);
             }
             log.append(this.user.uid + " has viewed the log ", "NOTICE");
@@ -405,9 +412,76 @@ namespace AR_MAC_DB
             tablePermComboBox.Text = tokens[1];
         }
 
-        private void tableSubmit_Click(object sender, EventArgs e)
+        private void noticeCheckBox_CheckedChanged(object sender, EventArgs e)
         {
+            logListBox.Items.Clear();
+            string line;
+            line = "";
+            line = log.readNext(line);
+            while (line != null)
+            {
+                if (noticeCheckBox.Checked == true && line.Substring(0, 1).Equals("N"))
+                {
+                    logListBox.Items.Add(line);
+                }
+                if (errorCheckBox.Checked == true && line.Substring(0, 1).Equals("E"))
+                {
+                    logListBox.Items.Add(line);
+                }
+                if (violationCheckBox.Checked == true && line.Substring(0, 1).Equals("V"))
+                {
+                    logListBox.Items.Add(line);
+                }
+                line = log.readNext(line);
+            }
+        }
 
+        private void errorCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            logListBox.Items.Clear();
+            string line;
+            line = "";
+            line = log.readNext(line);
+            while (line != null)
+            {
+                if (noticeCheckBox.Checked == true && line.Substring(0, 1).Equals("N"))
+                {
+                    logListBox.Items.Add(line);
+                }
+                if (errorCheckBox.Checked == true && line.Substring(0, 1).Equals("E"))
+                {
+                    logListBox.Items.Add(line);
+                }
+                if (violationCheckBox.Checked == true && line.Substring(0, 1).Equals("V"))
+                {
+                    logListBox.Items.Add(line);
+                }
+                line = log.readNext(line);
+            }
+        }
+
+        private void violationCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            logListBox.Items.Clear();
+            string line;
+            line = "";
+            line = log.readNext(line);
+            while (line != null)
+            {
+                if (noticeCheckBox.Checked == true && line.Substring(0, 1).Equals("N"))
+                {
+                    logListBox.Items.Add(line);
+                }
+                if (errorCheckBox.Checked == true && line.Substring(0, 1).Equals("E"))
+                {
+                    logListBox.Items.Add(line);
+                }
+                if (violationCheckBox.Checked == true && line.Substring(0, 1).Equals("V"))
+                {
+                    logListBox.Items.Add(line);
+                }
+                line = log.readNext(line);
+            }
         }
     }
 }

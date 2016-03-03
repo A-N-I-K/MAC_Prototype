@@ -47,6 +47,9 @@
             this.listTablesListBox = new System.Windows.Forms.ListBox();
             this.tableNameTextBox = new System.Windows.Forms.TextBox();
             this.tablePermComboBox = new System.Windows.Forms.ComboBox();
+            this.noticeCheckBox = new System.Windows.Forms.CheckBox();
+            this.errorCheckBox = new System.Windows.Forms.CheckBox();
+            this.violationCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // welcomeLabel
@@ -60,6 +63,7 @@
             // 
             // listUsersButton
             // 
+            this.listUsersButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listUsersButton.Location = new System.Drawing.Point(12, 62);
             this.listUsersButton.Name = "listUsersButton";
             this.listUsersButton.Size = new System.Drawing.Size(100, 23);
@@ -70,6 +74,7 @@
             // 
             // addUserButton
             // 
+            this.addUserButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addUserButton.Location = new System.Drawing.Point(12, 91);
             this.addUserButton.Name = "addUserButton";
             this.addUserButton.Size = new System.Drawing.Size(100, 23);
@@ -80,6 +85,7 @@
             // 
             // modifyUserButton
             // 
+            this.modifyUserButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.modifyUserButton.Location = new System.Drawing.Point(12, 120);
             this.modifyUserButton.Name = "modifyUserButton";
             this.modifyUserButton.Size = new System.Drawing.Size(100, 23);
@@ -90,6 +96,7 @@
             // 
             // deleteUserButton
             // 
+            this.deleteUserButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteUserButton.Location = new System.Drawing.Point(12, 149);
             this.deleteUserButton.Name = "deleteUserButton";
             this.deleteUserButton.Size = new System.Drawing.Size(100, 23);
@@ -100,6 +107,7 @@
             // 
             // viewLogButton
             // 
+            this.viewLogButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.viewLogButton.Location = new System.Drawing.Point(606, 121);
             this.viewLogButton.Name = "viewLogButton";
             this.viewLogButton.Size = new System.Drawing.Size(100, 23);
@@ -110,6 +118,7 @@
             // 
             // logoutButton
             // 
+            this.logoutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logoutButton.Location = new System.Drawing.Point(607, 150);
             this.logoutButton.Name = "logoutButton";
             this.logoutButton.Size = new System.Drawing.Size(99, 23);
@@ -120,59 +129,69 @@
             // 
             // listUsersListBox
             // 
+            this.listUsersListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listUsersListBox.FormattingEnabled = true;
+            this.listUsersListBox.ItemHeight = 16;
             this.listUsersListBox.Location = new System.Drawing.Point(118, 62);
             this.listUsersListBox.Name = "listUsersListBox";
-            this.listUsersListBox.Size = new System.Drawing.Size(376, 160);
+            this.listUsersListBox.Size = new System.Drawing.Size(376, 148);
             this.listUsersListBox.TabIndex = 7;
             this.listUsersListBox.Click += new System.EventHandler(this.listUsersListBox_Click);
             // 
             // fnameTextBox
             // 
+            this.fnameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fnameTextBox.Location = new System.Drawing.Point(500, 62);
             this.fnameTextBox.Name = "fnameTextBox";
-            this.fnameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.fnameTextBox.Size = new System.Drawing.Size(100, 22);
             this.fnameTextBox.TabIndex = 8;
             // 
             // lnameTextBox
             // 
+            this.lnameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lnameTextBox.Location = new System.Drawing.Point(500, 89);
             this.lnameTextBox.Name = "lnameTextBox";
-            this.lnameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.lnameTextBox.Size = new System.Drawing.Size(100, 22);
             this.lnameTextBox.TabIndex = 9;
             // 
             // uidTextBox
             // 
+            this.uidTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uidTextBox.Location = new System.Drawing.Point(500, 116);
             this.uidTextBox.Name = "uidTextBox";
-            this.uidTextBox.Size = new System.Drawing.Size(100, 20);
+            this.uidTextBox.Size = new System.Drawing.Size(100, 22);
             this.uidTextBox.TabIndex = 10;
             // 
             // pwdTextBox
             // 
+            this.pwdTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pwdTextBox.Location = new System.Drawing.Point(500, 143);
             this.pwdTextBox.Name = "pwdTextBox";
-            this.pwdTextBox.Size = new System.Drawing.Size(100, 20);
+            this.pwdTextBox.Size = new System.Drawing.Size(100, 22);
             this.pwdTextBox.TabIndex = 11;
             // 
             // permComboBox
             // 
+            this.permComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.permComboBox.FormattingEnabled = true;
             this.permComboBox.Location = new System.Drawing.Point(500, 169);
             this.permComboBox.Name = "permComboBox";
-            this.permComboBox.Size = new System.Drawing.Size(100, 21);
+            this.permComboBox.Size = new System.Drawing.Size(100, 24);
             this.permComboBox.TabIndex = 12;
             // 
             // logListBox
             // 
+            this.logListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.logListBox.FormattingEnabled = true;
-            this.logListBox.Location = new System.Drawing.Point(12, 233);
+            this.logListBox.ItemHeight = 16;
+            this.logListBox.Location = new System.Drawing.Point(12, 217);
             this.logListBox.Name = "logListBox";
-            this.logListBox.Size = new System.Drawing.Size(976, 277);
+            this.logListBox.Size = new System.Drawing.Size(976, 292);
             this.logListBox.TabIndex = 14;
             // 
             // listTablesButton
             // 
+            this.listTablesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listTablesButton.Location = new System.Drawing.Point(606, 62);
             this.listTablesButton.Name = "listTablesButton";
             this.listTablesButton.Size = new System.Drawing.Size(100, 23);
@@ -183,6 +202,7 @@
             // 
             // modifyTableButton
             // 
+            this.modifyTableButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.modifyTableButton.Location = new System.Drawing.Point(606, 92);
             this.modifyTableButton.Name = "modifyTableButton";
             this.modifyTableButton.Size = new System.Drawing.Size(100, 23);
@@ -196,30 +216,77 @@
             this.listTablesListBox.FormattingEnabled = true;
             this.listTablesListBox.Location = new System.Drawing.Point(712, 62);
             this.listTablesListBox.Name = "listTablesListBox";
-            this.listTablesListBox.Size = new System.Drawing.Size(171, 160);
+            this.listTablesListBox.Size = new System.Drawing.Size(171, 147);
             this.listTablesListBox.TabIndex = 17;
             this.listTablesListBox.Click += new System.EventHandler(this.listTablesListBox_Click);
             // 
             // tableNameTextBox
             // 
+            this.tableNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableNameTextBox.Location = new System.Drawing.Point(889, 62);
             this.tableNameTextBox.Name = "tableNameTextBox";
-            this.tableNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.tableNameTextBox.Size = new System.Drawing.Size(100, 22);
             this.tableNameTextBox.TabIndex = 18;
             // 
             // tablePermComboBox
             // 
+            this.tablePermComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tablePermComboBox.FormattingEnabled = true;
             this.tablePermComboBox.Location = new System.Drawing.Point(889, 88);
             this.tablePermComboBox.Name = "tablePermComboBox";
-            this.tablePermComboBox.Size = new System.Drawing.Size(100, 21);
+            this.tablePermComboBox.Size = new System.Drawing.Size(100, 24);
             this.tablePermComboBox.TabIndex = 20;
+            // 
+            // noticeCheckBox
+            // 
+            this.noticeCheckBox.AutoSize = true;
+            this.noticeCheckBox.Checked = true;
+            this.noticeCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.noticeCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noticeCheckBox.Location = new System.Drawing.Point(909, 137);
+            this.noticeCheckBox.Name = "noticeCheckBox";
+            this.noticeCheckBox.Size = new System.Drawing.Size(66, 20);
+            this.noticeCheckBox.TabIndex = 21;
+            this.noticeCheckBox.Text = "Notice";
+            this.noticeCheckBox.UseVisualStyleBackColor = true;
+            this.noticeCheckBox.CheckedChanged += new System.EventHandler(this.noticeCheckBox_CheckedChanged);
+            // 
+            // errorCheckBox
+            // 
+            this.errorCheckBox.AutoSize = true;
+            this.errorCheckBox.Checked = true;
+            this.errorCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.errorCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.errorCheckBox.Location = new System.Drawing.Point(909, 163);
+            this.errorCheckBox.Name = "errorCheckBox";
+            this.errorCheckBox.Size = new System.Drawing.Size(56, 20);
+            this.errorCheckBox.TabIndex = 22;
+            this.errorCheckBox.Text = "Error";
+            this.errorCheckBox.UseVisualStyleBackColor = true;
+            this.errorCheckBox.CheckedChanged += new System.EventHandler(this.errorCheckBox_CheckedChanged);
+            // 
+            // violationCheckBox
+            // 
+            this.violationCheckBox.AutoSize = true;
+            this.violationCheckBox.Checked = true;
+            this.violationCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.violationCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.violationCheckBox.Location = new System.Drawing.Point(909, 189);
+            this.violationCheckBox.Name = "violationCheckBox";
+            this.violationCheckBox.Size = new System.Drawing.Size(79, 20);
+            this.violationCheckBox.TabIndex = 23;
+            this.violationCheckBox.Text = "Violation";
+            this.violationCheckBox.UseVisualStyleBackColor = true;
+            this.violationCheckBox.CheckedChanged += new System.EventHandler(this.violationCheckBox_CheckedChanged);
             // 
             // soForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1001, 522);
+            this.Controls.Add(this.violationCheckBox);
+            this.Controls.Add(this.errorCheckBox);
+            this.Controls.Add(this.noticeCheckBox);
             this.Controls.Add(this.tablePermComboBox);
             this.Controls.Add(this.tableNameTextBox);
             this.Controls.Add(this.listTablesListBox);
@@ -267,5 +334,8 @@
         private System.Windows.Forms.ListBox listTablesListBox;
         private System.Windows.Forms.TextBox tableNameTextBox;
         private System.Windows.Forms.ComboBox tablePermComboBox;
+        private System.Windows.Forms.CheckBox noticeCheckBox;
+        private System.Windows.Forms.CheckBox errorCheckBox;
+        private System.Windows.Forms.CheckBox violationCheckBox;
     }
 }
