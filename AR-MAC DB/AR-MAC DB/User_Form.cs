@@ -197,24 +197,24 @@ namespace AR_MAC_DB
                         if (queryCheckSelect(query, user.uid) || queryCheckInsert(query, user.uid))
                         {
                             consoleListBox.Items.Insert(0, "Query successful!");
-                            log.append(this.user + " has successfully queried : " + query, "NOTICE");
+                            log.append(this.user.uid + " has successfully queried : " + query, "NOTICE");
                         }
                         else
                         {
                             consoleListBox.Items.Insert(0, "Access violation attempted. This incident will be reported.");
-                            log.append(this.user + " has unsuccessfully queried-Access violation : " + query, "VIOLATION");
+                            log.append(this.user.uid + " has unsuccessfully queried-Access violation : " + query, "VIOLATION");
                         }
                     }
                     else
                     {
                         consoleListBox.Items.Insert(0, "Syntax error.");
-                        log.append(this.user + " has unsuccessfully queried - Error in the query : " + query, "ERROR");
+                        log.append(this.user.uid + " has unsuccessfully queried - Error in the query : " + query, "ERROR");
                     }
                 }
                 else
                 {
                     consoleListBox.Items.Insert(0, "Syntax error.");
-                    log.append(this.user + " has unsuccessfully queried - Error in the query : " + query, "ERROR");
+                    log.append(this.user.uid + " has unsuccessfully queried - Error in the query : " + query, "ERROR");
                 }
                 commandTextBox.Text = String.Empty;
             }
